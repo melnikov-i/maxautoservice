@@ -1,0 +1,19 @@
+{
+  "name": "maxautoservice",
+  "version": "1.0.0",
+  "description": "Landing Page for maxautoservice.ru",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melnikov-i/maxautoservice.git"
+  },
+  "author": "Ivan Melnikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melnikov-i/maxautoservice/issues"
+  },
+  "homepage": "https://github.com/melnikov-i/maxautoservice#readme"
+}
