@@ -10,7 +10,7 @@ import {
   LayoutTopLogoDescription,
   LayoutTopPhone,
   LayoutTopPhoneNumber,
-  LayoutHeader,
+  LayoutHead,
   LayoutContent,
   LayoutProfit,
   LayoutDescription,
@@ -18,7 +18,12 @@ import {
   LayoutPhotoGallery,
   LayoutWarranty,
   LayoutContacts,
-  LayoutCallToAction
+  LayoutCallToAction,
+  LayoutScreenHeader,
+  LayoutScreenHeaderSpan,
+  LayoutProfitList,
+  LayoutProfitListItem,
+  LayoutProfitListItemSpan,
 } from '@src/styled';
 
 const FontAwesomeEOT = require('@src/fonts/fontawesome-webfont.eot');
@@ -33,7 +38,7 @@ injectGlobal`
     padding: 0;
     --font-size: 0;
     border: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'PT Sans', sans-serif;
   }
 
   html, body {
@@ -89,12 +94,87 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           </LayoutTopPhoneNumber>
         </LayoutTopPhone>
       </LayoutTop>
-      <LayoutHeader>
+      <LayoutHead>
         {'Идентификация'}
-      </LayoutHeader>
+      </LayoutHead>
       <LayoutContent>
         <LayoutProfit>
-          {'Выгоды'}
+          <LayoutScreenHeader>
+            <LayoutScreenHeaderSpan>
+              {'MAX'}              
+            </LayoutScreenHeaderSpan>
+            {'AUTO - сервис без хлопот'}
+          </LayoutScreenHeader>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Профессиональный подход:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                {'Обслуживание автомобилей наших клиентов выполняется профессионалами высокого уровня. За плечами большинства наших специалистов многолетний опыт работы в этой области, в том числе и на СТО официального дилера.'}
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Разумная цена:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                {'Стоимость выполненных работ и запасных частей значительно ниже, чем у официалов.'}
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Все в наличии:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Точная диагностика:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Приемлемые сроки:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Прозрачно:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
+          <LayoutProfitList>
+            <LayoutProfitListItem>
+              <LayoutProfitListItemSpan>
+                {'Гарантия:'}
+              </LayoutProfitListItemSpan>
+              <LayoutProfitListItemSpan>
+                
+              </LayoutProfitListItemSpan>
+            </LayoutProfitListItem>
+          </LayoutProfitList>
         </LayoutProfit>
         <LayoutDescription>
           {'Описание продукта (или услуги)'}
@@ -118,3 +198,4 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
     </LayoutWrapper>
   );
 }
+

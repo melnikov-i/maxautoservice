@@ -32,7 +32,6 @@ export const LayoutTopLogo = styled.div`
 
 export const LayoutTopLogoName = styled.p`
   font-size: 32px;
-  font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   color: #000;
   &::before {
@@ -56,7 +55,6 @@ export const LayoutTopLogoNameSpan = styled.span`
 
 export const LayoutTopLogoDescription = styled.p`
   font-size: 14px;
-  font-family: 'PT Sans', sans-serif;
   font-weight: normal;
   font-style: italic;
   color: #666;
@@ -67,7 +65,6 @@ export const LayoutTopPhone = LayoutTopLogo.extend``;
 
 export const LayoutTopPhoneNumber = styled.p`
   font-size: 22px;
-  font-family: 'PT Sans', sans-serif;
   font-weight: normal;
   color: #000;
   height: 60px;
@@ -84,7 +81,7 @@ export const LayoutTopPhoneNumber = styled.p`
   }
 `;
 
-export const LayoutHeader = styled.div`
+export const LayoutHead = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
@@ -98,6 +95,7 @@ export const LayoutContent = styled.div`
   width: 100%;
   margin: 0 auto;
 `;
+
 
 export const LayoutProfit = styled.div`
   box-sizing: border-box;
@@ -160,4 +158,33 @@ export const LayoutCallToAction = styled.div`
 background-color: rgba(255, 0, 127, .4);
 height: 400px;
 font-size: 14px;
+`;
+
+
+export const LayoutScreenHeader = styled.h3`
+  font-size: 36px;
+  font-weight: normal;
+  color: #000;
+  
+`;
+
+export const LayoutScreenHeaderSpan = styled.span`
+  color: rgb(255, 204, 54);
+`;
+
+export const LayoutProfitList = styled.ul`
+  
+`;
+
+export const LayoutProfitListItem = styled.li`
+  list-style-type: none;
+  list-style-position: inside;
+  font-size: 24px;
+  font-weight: normal;
+  color: #000;
+`;
+
+export const LayoutProfitListItemSpan = styled.span`
+  display: inline-block;
+  vertical-align: top;
 `;
