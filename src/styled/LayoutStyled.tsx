@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+import {
+  LAYOUT_BIG_MAX_WIDTH
+} from '@src/styled';
+
 const Logo = require('@src/images/Logo');
 
 export const LayoutWrapper = styled.div`
@@ -8,7 +12,9 @@ export const LayoutWrapper = styled.div`
 
 export const LayoutTop = styled.div`
   box-sizing: border-box;
+  max-width: ${LAYOUT_BIG_MAX_WIDTH};
   width: 100%;
+  margin: 0 auto;
   height: 80px;
   padding: 10px 20px;
 
@@ -78,13 +84,19 @@ export const LayoutTopPhoneNumber = styled.p`
   }
 `;
 
-export const LayoutIdentification = styled.div`
+export const LayoutHeader = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
 background-color: rgba(255, 0, 0, .4);
 height: 400px;
 font-size: 14px;
+`;
+
+export const LayoutContent = styled.div`
+  max-width: ${LAYOUT_BIG_MAX_WIDTH};
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export const LayoutProfit = styled.div`

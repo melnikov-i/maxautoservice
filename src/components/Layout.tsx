@@ -10,7 +10,8 @@ import {
   LayoutTopLogoDescription,
   LayoutTopPhone,
   LayoutTopPhoneNumber,
-  LayoutIdentification,
+  LayoutHeader,
+  LayoutContent,
   LayoutProfit,
   LayoutDescription,
   LayoutTOSet,
@@ -88,30 +89,32 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           </LayoutTopPhoneNumber>
         </LayoutTopPhone>
       </LayoutTop>
-      <LayoutIdentification>
+      <LayoutHeader>
         {'Идентификация'}
-      </LayoutIdentification>
-      <LayoutProfit>
-        {'Выгоды'}
-      </LayoutProfit>
-      <LayoutDescription>
-        {'Описание продукта (или услуги)'}
-      </LayoutDescription>
-      <LayoutTOSet>
-        {'Комплекты ТО'}
-      </LayoutTOSet>
-      <LayoutPhotoGallery>
-        {'Галерея выполненных работ'}
-      </LayoutPhotoGallery>
-      <LayoutWarranty>
-        {'Гарантия'}
-      </LayoutWarranty>
-      <LayoutContacts>
-        {'Контакты и телефоны'}
-      </LayoutContacts>
-      <LayoutCallToAction>
-        {'Призыв к действию'}
-      </LayoutCallToAction>
+      </LayoutHeader>
+      <LayoutContent>
+        <LayoutProfit>
+          {'Выгоды'}
+        </LayoutProfit>
+        <LayoutDescription>
+          {'Описание продукта (или услуги)'}
+        </LayoutDescription>
+        <LayoutTOSet>
+          {'Комплекты ТО'}
+        </LayoutTOSet>
+        <LayoutPhotoGallery>
+          {'Галерея выполненных работ'}
+        </LayoutPhotoGallery>
+        <LayoutWarranty>
+          {'Гарантия'}
+        </LayoutWarranty>
+        <LayoutContacts>
+          {'Контакты и телефоны'}
+        </LayoutContacts>
+        <LayoutCallToAction>
+          {'Призыв к действию'}
+        </LayoutCallToAction>        
+      </LayoutContent>
     </LayoutWrapper>
   );
 }
