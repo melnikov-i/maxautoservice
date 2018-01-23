@@ -2,6 +2,12 @@ import * as React from 'react';
 import { injectGlobal } from 'styled-components';
 
 import {
+  PageDataInterface
+} from '@src/interfaces';
+
+// import ProfitConnected from '@src/connected/ProfitConnected.usage';
+
+import {
   LayoutWrapper,
   LayoutTop,
   LayoutTopLogo,
@@ -76,12 +82,12 @@ injectGlobal`
 `;
 
 interface LayoutProps {
-  Hello: string,
+  PageData: PageDataInterface
 }
 
 export const Layout: React.SFC<LayoutProps> = (props) => {
-  const { Hello } = props;
-  console.log(Hello);
+  const { PageData } = props;
+  console.log(PageData);
   return (
     <LayoutWrapper>
       <LayoutTop>
@@ -110,6 +116,14 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           <LayoutScreenHeader>
             {'Мы рады Вам предложить:'}
           </LayoutScreenHeader>
+    {
+      PageData.profit.map((e, i) => {
+        console.log(e);
+        return (
+          <div></div>
+        )
+      })
+    }
         </LayoutProfit>
         <LayoutDescription>
           {'Описание продукта (или услуги)'}

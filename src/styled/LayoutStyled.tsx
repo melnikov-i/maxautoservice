@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import {
   LAYOUT_BIG_MAX_WIDTH,
-  PROFIT_ICON_SIZE,
-  PROFIT_ICON_FONT_SIZE
+  // PROFIT_ICON_SIZE,
+  // PROFIT_ICON_FONT_SIZE
 } from '@src/styled';
 
 const Logo = require('@src/images/Logo');

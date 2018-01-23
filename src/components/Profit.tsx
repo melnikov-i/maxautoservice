@@ -1,16 +1,19 @@
 import * as React from 'react';
 
 import {
-  CurrentProfitData
+  CurrentProfitDataInterface
 } from '@src/interfaces';
 
 interface ProfitProps {
-  profit: CurrentProfitData,
+  profit: CurrentProfitDataInterface,
 }
 
 export const Profit: React.SFC<ProfitProps> = (props) => {
   const { profit } = props;
+  console.log(profit);
   return (
-    
+    <div>
+      
+    </div>
   );
 }
