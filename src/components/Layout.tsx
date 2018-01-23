@@ -20,10 +20,16 @@ import {
   LayoutContacts,
   LayoutCallToAction,
   LayoutScreenHeader,
-  LayoutScreenHeaderSpan,
-  LayoutProfitList,
-  LayoutProfitListItem,
-  LayoutProfitListItemSpan,
+
+  // LayoutProfitItem,
+  // LayoutProfitItemIcon,
+  // LayoutProfitItemHeader,
+  // LayoutProfitItemText
+  
+  // LayoutScreenHeaderSpan,
+  // LayoutProfitList,
+  // LayoutProfitListItem,
+  // LayoutProfitListItemSpan,
 } from '@src/styled';
 
 const FontAwesomeEOT = require('@src/fonts/fontawesome-webfont.eot');
@@ -38,7 +44,9 @@ injectGlobal`
     padding: 0;
     --font-size: 0;
     border: 0;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #000;
   }
 
   html, body {
@@ -53,7 +61,7 @@ injectGlobal`
   #app {
     width: 100%;
   }
-  
+
   @font-face {
     font-family: 'FontAwesome';
     src: url('${FontAwesomeEOT}?v=4.7.0');
@@ -100,81 +108,8 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
       <LayoutContent>
         <LayoutProfit>
           <LayoutScreenHeader>
-            <LayoutScreenHeaderSpan>
-              {'MAX'}              
-            </LayoutScreenHeaderSpan>
-            {'AUTO - сервис без хлопот'}
+            {'Мы рады Вам предложить:'}
           </LayoutScreenHeader>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Профессиональный подход:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                {'Обслуживание автомобилей наших клиентов выполняется профессионалами высокого уровня. За плечами большинства наших специалистов многолетний опыт работы в этой области, в том числе и на СТО официального дилера.'}
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Разумная цена:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                {'Стоимость выполненных работ и запасных частей значительно ниже, чем у официалов.'}
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Все в наличии:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Точная диагностика:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Приемлемые сроки:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Прозрачно:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
-          <LayoutProfitList>
-            <LayoutProfitListItem>
-              <LayoutProfitListItemSpan>
-                {'Гарантия:'}
-              </LayoutProfitListItemSpan>
-              <LayoutProfitListItemSpan>
-                
-              </LayoutProfitListItemSpan>
-            </LayoutProfitListItem>
-          </LayoutProfitList>
         </LayoutProfit>
         <LayoutDescription>
           {'Описание продукта (или услуги)'}
@@ -193,9 +128,103 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         </LayoutContacts>
         <LayoutCallToAction>
           {'Призыв к действию'}
-        </LayoutCallToAction>        
+        </LayoutCallToAction>
       </LayoutContent>
     </LayoutWrapper>
   );
+          // <LayoutProfitItem>
+          //   <LayoutProfitItemIcon />
+          //   <LayoutProfitItemHeader>
+          //     {'Профессиональный подход'}
+          //   </LayoutProfitItemHeader>
+          //   <LayoutProfitItemText>
+          //     {'Обслуживание автомобилей наших клиентов выполняется профессионалами высокого уровня. За плечами большинства наших специалистов многолетний опыт работы в этой области, в том числе и на СТО официального дилера.'}
+          //   </LayoutProfitItemText>
+          // </LayoutProfitItem>
+          // <LayoutProfitItem>
+          //   <LayoutProfitItemIcon />
+          // </LayoutProfitItem>
+          // <LayoutProfitItem>
+          //   <LayoutProfitItemIcon />
+          // </LayoutProfitItem>
+          // <LayoutProfitItem>
+          //   <LayoutProfitItemIcon />
+          // </LayoutProfitItem>
+          // <LayoutProfitItem>
+          //   <LayoutProfitItemIcon />
+          // </LayoutProfitItem>
+          // <LayoutProfitItem>
+          //   <LayoutProfitItemIcon />
+          // </LayoutProfitItem>
 }
+          //       {'Профессиональный подход:'}
+          //       {'Разумная цена:'}
+          //       {'Все в наличии:'}
+          //       {'Точная диагностика:'}
+          //       {'Приемлемые сроки:'}
+          //       {'Прозрачно:'}
+          //       {'Гарантия качества:'}
 
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+          //       {'Обслуживание автомобилей наших клиентов выполняется профессионалами высокого уровня. За плечами большинства наших специалистов многолетний опыт работы в этой области, в том числе и на СТО официального дилера.'}
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+          //       {'Стоимость выполненных работ и запасных частей значительно ниже, чем у официалов.'}
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+                
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+                
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+                
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+                
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>
+          // <LayoutProfitList>
+          //   <LayoutProfitListItem>
+          //     <LayoutProfitListItemSpan>
+          //     </LayoutProfitListItemSpan>
+          //     <LayoutProfitListItemSpan>
+                
+          //     </LayoutProfitListItemSpan>
+          //   </LayoutProfitListItem>
+          // </LayoutProfitList>

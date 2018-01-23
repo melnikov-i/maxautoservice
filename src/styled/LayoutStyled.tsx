@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 import {
-  LAYOUT_BIG_MAX_WIDTH
+  LAYOUT_BIG_MAX_WIDTH,
+  PROFIT_ICON_SIZE,
+  PROFIT_ICON_FONT_SIZE
 } from '@src/styled';
 
 const Logo = require('@src/images/Logo');
@@ -28,12 +30,10 @@ export const LayoutTopLogo = styled.div`
   vertical-align: top;
   
 `;
-// background-color: rgba(0, 255, 0, .4);
 
 export const LayoutTopLogoName = styled.p`
   font-size: 32px;
   font-weight: 700;
-  color: #000;
   &::before {
     content: "";
     display: inline-block;
@@ -47,7 +47,6 @@ export const LayoutTopLogoName = styled.p`
     background-size: 100%;
   }
 `;
-// background-color: rgba(0, 0, 255, .4);
 
 export const LayoutTopLogoNameSpan = styled.span`
   color: rgb(255, 204, 54);
@@ -66,7 +65,6 @@ export const LayoutTopPhone = LayoutTopLogo.extend``;
 export const LayoutTopPhoneNumber = styled.p`
   font-size: 22px;
   font-weight: normal;
-  color: #000;
   height: 60px;
   line-height: 60px;
   text-align: right;
@@ -85,7 +83,7 @@ export const LayoutHead = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(255, 0, 0, .4);
+background-color: rgba(180, 180, 180, .4);
 height: 400px;
 font-size: 14px;
 `;
@@ -100,17 +98,21 @@ export const LayoutContent = styled.div`
 export const LayoutProfit = styled.div`
   box-sizing: border-box;
   width: 100%;
-  padding: 20px 30px;
-background-color: rgba(0, 255, 0, .4);
-height: 400px;
+  padding: 20px 0;
+
+background-color: rgba(100, 100, 100, .4);
 font-size: 14px;
 `;
+
+
+
+
 
 export const LayoutDescription = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(0, 0, 255, .4);
+background-color: rgba(150, 150, 150, .4);
 height: 400px;
 font-size: 14px;
 `;
@@ -119,7 +121,7 @@ export const LayoutTOSet = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(255, 0, 255, .4);
+background-color: rgba(100, 100, 100, .4);
 height: 400px;
 font-size: 14px;
 `;
@@ -128,7 +130,7 @@ export const LayoutPhotoGallery = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(255, 255, 0, .4);
+background-color: rgba(150, 150, 150, .4);
 height: 400px;
 font-size: 14px;
 `;
@@ -137,7 +139,7 @@ export const LayoutWarranty = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(127, 255, 0, .4);
+background-color: rgba(100, 100, 100, .4);
 height: 400px;
 font-size: 14px;
 `;
@@ -146,7 +148,7 @@ export const LayoutContacts = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(255, 127, 0, .4);
+background-color: rgba(150, 150, 150, .4);
 height: 400px;
 font-size: 14px;
 `;
@@ -155,22 +157,20 @@ export const LayoutCallToAction = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 30px;
-background-color: rgba(255, 0, 127, .4);
+background-color: rgba(100, 100, 100, .4);
 height: 400px;
 font-size: 14px;
 `;
 
 
 export const LayoutScreenHeader = styled.h3`
-  font-size: 36px;
-  font-weight: normal;
-  color: #000;
-  
+  font-size: 30px;
+  margin-left: 1.6%;
 `;
 
-export const LayoutScreenHeaderSpan = styled.span`
-  color: rgb(255, 204, 54);
-`;
+// export const LayoutScreenHeaderSpan = styled.span`
+//   color: rgb(255, 204, 54);
+// `;
 
 export const LayoutProfitList = styled.ul`
   
@@ -181,8 +181,7 @@ export const LayoutProfitListItem = styled.li`
   list-style-position: inside;
   font-size: 24px;
   font-weight: normal;
-  color: #000;
-`;
+  `;
 
 export const LayoutProfitListItemSpan = styled.span`
   display: inline-block;
