@@ -100,9 +100,9 @@ export const LayoutProfit = styled.div`
   width: 100%;
   padding: 20px 0;
 
-background-color: rgba(100, 100, 100, .4);
-font-size: 14px;
 `;
+// font-size: 14px;
+// background-color: rgba(100, 100, 100, .4);
 
 
 

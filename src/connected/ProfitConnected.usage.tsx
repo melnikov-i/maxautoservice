@@ -6,6 +6,6 @@ import {
 
 import { ProfitConnected } from '@src/connected';
 
-export default (profit: CurrentProfitDataInterface ) => (
+export default ({profit}: {profit: CurrentProfitDataInterface}) => (
   <ProfitConnected profit={profit} />
 ); 

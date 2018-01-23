@@ -7,3 +7,10 @@ export interface CurrentProfitDataInterface {
 export interface PageDataInterface {
   profit: CurrentProfitDataInterface[],
 }
+
+interface CurrentProfitIconInterface {
+  icon: CurrentProfitDataInterface['icon']
+}
+
+export type ProfitIconStyleType =
+  CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;

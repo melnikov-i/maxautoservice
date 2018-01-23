@@ -2,10 +2,10 @@ import * as React from 'react';
 import { injectGlobal } from 'styled-components';
 
 import {
-  PageDataInterface
+  PageDataInterface,
 } from '@src/interfaces';
 
-// import ProfitConnected from '@src/connected/ProfitConnected.usage';
+import ProfitConnected from '@src/connected/ProfitConnected.usage';
 
 import {
   LayoutWrapper,
@@ -27,10 +27,7 @@ import {
   LayoutCallToAction,
   LayoutScreenHeader,
 
-  // LayoutProfitItem,
-  // LayoutProfitItemIcon,
-  // LayoutProfitItemHeader,
-  // LayoutProfitItemText
+
   
   // LayoutScreenHeaderSpan,
   // LayoutProfitList,
@@ -114,13 +111,13 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
       <LayoutContent>
         <LayoutProfit>
           <LayoutScreenHeader>
-            {'Мы рады Вам предложить:'}
+            {'Ваш проводник в мире Renault'}
           </LayoutScreenHeader>
     {
       PageData.profit.map((e, i) => {
         console.log(e);
         return (
-          <div></div>
+          <ProfitConnected key={i} profit={e} />
         )
       })
     }
