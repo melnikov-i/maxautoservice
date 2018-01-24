@@ -4,8 +4,19 @@ export interface CurrentProfitDataInterface {
   text: string,
 }
 
+export interface CurrentHeadDataInterface {
+  header: string,  
+}
+
 export interface PageDataInterface {
+  logo: {
+    yellow: string,
+    black: string
+  },
+  phone: string,
+  profitHeader: string,
   profit: CurrentProfitDataInterface[],
+  head: CurrentHeadDataInterface,
 }
 
 interface CurrentProfitIconInterface {

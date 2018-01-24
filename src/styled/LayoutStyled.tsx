@@ -20,6 +20,7 @@ export const LayoutTop = styled.div`
   height: 80px;
   padding: 10px 20px;
 
+background-color: rgba(127, 127, 127, .4);
 `;
 
 
@@ -99,10 +100,7 @@ export const LayoutProfit = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 20px 0;
-
 `;
-// font-size: 14px;
-// background-color: rgba(100, 100, 100, .4);
 
 
 

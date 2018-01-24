@@ -5,17 +5,20 @@ import {
   PageDataInterface,
 } from '@src/interfaces';
 
-import ProfitConnected from '@src/connected/ProfitConnected.usage';
+// import ProfitConnected from '@src/connected/ProfitConnected.usage';
+import HeadConnected from '@src/connected/HeadConnected.usage';
 
 import {
   LayoutWrapper,
   LayoutTop,
-  LayoutTopLogo,
-  LayoutTopLogoName,
-  LayoutTopLogoNameSpan,
-  LayoutTopLogoDescription,
-  LayoutTopPhone,
-  LayoutTopPhoneNumber,
+
+  // LayoutTopLogo,
+  // LayoutTopLogoName,
+  // LayoutTopLogoNameSpan,
+  // LayoutTopLogoDescription,
+  // LayoutTopPhone,
+  // LayoutTopPhoneNumber,
+
   LayoutHead,
   LayoutContent,
   LayoutProfit,
@@ -25,7 +28,8 @@ import {
   LayoutWarranty,
   LayoutContacts,
   LayoutCallToAction,
-  LayoutScreenHeader,
+  
+  // LayoutScreenHeader,
 
 
   
@@ -85,42 +89,44 @@ interface LayoutProps {
 export const Layout: React.SFC<LayoutProps> = (props) => {
   const { PageData } = props;
   console.log(PageData);
+        // <LayoutTopLogo>
+        //   <LayoutTopLogoName>
+        //     <LayoutTopLogoNameSpan>
+        //       {PageData.logo.yellow}
+        //     </LayoutTopLogoNameSpan>
+        //     {PageData.logo.black}
+        //   </LayoutTopLogoName>
+        //   <LayoutTopLogoDescription>
+        //     {PageData.profitHeader}
+        //   </LayoutTopLogoDescription>
+        // </LayoutTopLogo>
+        // <LayoutTopPhone>
+        //   <LayoutTopPhoneNumber>
+        //     {PageData.phone}
+        //   </LayoutTopPhoneNumber>
+        // </LayoutTopPhone>
+
+    //       <LayoutScreenHeader>
+    //         {PageData.profitHeader}
+    //       </LayoutScreenHeader>
+    // {
+    //   PageData.profit.map((e, i) => {
+    //     console.log(e);
+    //     return (
+    //       <ProfitConnected key={i} profit={e} />
+    //     )
+    //   })
+    // }
+
   return (
     <LayoutWrapper>
       <LayoutTop>
-        <LayoutTopLogo>
-          <LayoutTopLogoName>
-            <LayoutTopLogoNameSpan>
-              {'MAX'}
-            </LayoutTopLogoNameSpan>
-            {'AUTO'}
-          </LayoutTopLogoName>
-          <LayoutTopLogoDescription>
-            {'Ваш проводник в мире Renault'}
-          </LayoutTopLogoDescription>
-        </LayoutTopLogo>
-        <LayoutTopPhone>
-          <LayoutTopPhoneNumber>
-            {'+7 (952) 277-7763'}            
-          </LayoutTopPhoneNumber>
-        </LayoutTopPhone>
       </LayoutTop>
       <LayoutHead>
-        {'Идентификация'}
+        <HeadConnected head={PageData.head} />
       </LayoutHead>
       <LayoutContent>
         <LayoutProfit>
-          <LayoutScreenHeader>
-            {'Ваш проводник в мире Renault'}
-          </LayoutScreenHeader>
-    {
-      PageData.profit.map((e, i) => {
-        console.log(e);
-        return (
-          <ProfitConnected key={i} profit={e} />
-        )
-      })
-    }
         </LayoutProfit>
         <LayoutDescription>
           {'Описание продукта (или услуги)'}
