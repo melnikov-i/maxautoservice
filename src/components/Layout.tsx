@@ -5,21 +5,22 @@ import {
   PageDataInterface,
 } from '@src/interfaces';
 
-// import ProfitConnected from '@src/connected/ProfitConnected.usage';
+import ProfitConnected from '@src/connected/ProfitConnected.usage';
 import HeadConnected from '@src/connected/HeadConnected.usage';
 
 import {
   LayoutWrapper,
   LayoutTop,
 
-  // LayoutTopLogo,
-  // LayoutTopLogoName,
-  // LayoutTopLogoNameSpan,
-  // LayoutTopLogoDescription,
-  // LayoutTopPhone,
-  // LayoutTopPhoneNumber,
+  LayoutTopLogo,
+  LayoutTopLogoName,
+  LayoutTopLogoNameSpan,
+  LayoutTopLogoDescription,
+  LayoutTopPhone,
+  LayoutTopPhoneNumber,
 
-  LayoutHead,
+  // LayoutHead,
+  
   LayoutContent,
   LayoutProfit,
   LayoutDescription,
@@ -29,7 +30,7 @@ import {
   LayoutContacts,
   LayoutCallToAction,
   
-  // LayoutScreenHeader,
+  LayoutScreenHeader,
 
 
   
@@ -89,44 +90,42 @@ interface LayoutProps {
 export const Layout: React.SFC<LayoutProps> = (props) => {
   const { PageData } = props;
   console.log(PageData);
-        // <LayoutTopLogo>
-        //   <LayoutTopLogoName>
-        //     <LayoutTopLogoNameSpan>
-        //       {PageData.logo.yellow}
-        //     </LayoutTopLogoNameSpan>
-        //     {PageData.logo.black}
-        //   </LayoutTopLogoName>
-        //   <LayoutTopLogoDescription>
-        //     {PageData.profitHeader}
-        //   </LayoutTopLogoDescription>
-        // </LayoutTopLogo>
-        // <LayoutTopPhone>
-        //   <LayoutTopPhoneNumber>
-        //     {PageData.phone}
-        //   </LayoutTopPhoneNumber>
-        // </LayoutTopPhone>
 
-    //       <LayoutScreenHeader>
-    //         {PageData.profitHeader}
-    //       </LayoutScreenHeader>
-    // {
-    //   PageData.profit.map((e, i) => {
-    //     console.log(e);
-    //     return (
-    //       <ProfitConnected key={i} profit={e} />
-    //     )
-    //   })
-    // }
 
   return (
     <LayoutWrapper>
       <LayoutTop>
+        <LayoutTopLogo>
+          <LayoutTopLogoName>
+            <LayoutTopLogoNameSpan>
+              {PageData.logo.yellow}
+            </LayoutTopLogoNameSpan>
+            {PageData.logo.black}
+          </LayoutTopLogoName>
+          <LayoutTopLogoDescription>
+            {PageData.profitHeader}
+          </LayoutTopLogoDescription>
+        </LayoutTopLogo>
+        <LayoutTopPhone>
+          <LayoutTopPhoneNumber>
+            {PageData.phone}
+          </LayoutTopPhoneNumber>
+        </LayoutTopPhone>
       </LayoutTop>
-      <LayoutHead>
-        <HeadConnected head={PageData.head} />
-      </LayoutHead>
+      <HeadConnected head={PageData.head} />
       <LayoutContent>
         <LayoutProfit>
+          <LayoutScreenHeader>
+            {PageData.profitHeader}
+          </LayoutScreenHeader>
+    {
+      PageData.profit.map((e, i) => {
+        console.log(e);
+        return (
+          <ProfitConnected key={i} profit={e} />
+        )
+      })
+    }
         </LayoutProfit>
         <LayoutDescription>
           {'Описание продукта (или услуги)'}

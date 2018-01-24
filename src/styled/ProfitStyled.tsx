@@ -14,7 +14,6 @@ export const ProfitItem = styled.div`
   margin: 1.6%;
   display: inline-block;
   vertical-align: top;
-
 `;
 // background-color: rgba(80, 80, 80, .4);
 
@@ -43,7 +42,7 @@ export const ProfitItemHeader = styled.h3`
 `;
 
 export const ProfitItemText = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 10px;
   text-align: center;
 `;

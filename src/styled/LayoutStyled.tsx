@@ -10,6 +10,8 @@ const Logo = require('@src/images/Logo');
 
 export const LayoutWrapper = styled.div`
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
 `;
 
 export const LayoutTop = styled.div`
@@ -20,8 +22,8 @@ export const LayoutTop = styled.div`
   height: 80px;
   padding: 10px 20px;
 
-background-color: rgba(127, 127, 127, .4);
 `;
+// background-color: rgba(127, 127, 127, .4);
 
 
 export const LayoutTopLogo = styled.div`
@@ -80,14 +82,7 @@ export const LayoutTopPhoneNumber = styled.p`
   }
 `;
 
-export const LayoutHead = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  padding: 20px 30px;
-background-color: rgba(180, 180, 180, .4);
-height: 400px;
-font-size: 14px;
-`;
+
 
 export const LayoutContent = styled.div`
   max-width: ${LAYOUT_BIG_MAX_WIDTH};

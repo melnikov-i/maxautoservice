@@ -7,5 +7,5 @@ import {
 import { HeadConnected } from '@src/connected';
 
 export default ({head}: {head: CurrentHeadDataInterface}) => (
-  <ProfitConnected head={head} />
+  <HeadConnected head={head} />
 ); 
