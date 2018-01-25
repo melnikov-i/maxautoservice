@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-const headBg = require('@src/images/head-bg');
+const slide1 = require('@src/images/slide_1');
+const slide2 = require('@src/images/slide_2');
 
 import {
   LAYOUT_BIG_MAX_WIDTH,
@@ -11,10 +12,27 @@ import {
 export const HeadWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
-  position: relative;
+`;
+
+export const HeadCarousel = styled.div`
+  width: 100%;
   overflow: hidden;
+  height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
+`;
+
+export const HeadCarouselItem = styled.div`
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
   min-height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
-  background-image: url(${headBg});
+  background-image: url(${
+    (props: {item: string}) => {
+      switch (props.item) {
+        case '1': return slide1;
+        case '2': return slide2;
+      }
+    }
+  });
   background-position: center center;
   background-size: cover;
 `;

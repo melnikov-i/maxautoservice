@@ -6,8 +6,10 @@ import {
 
 import {
   HeadWrapper,
+  HeadCarousel,
+  HeadCarouselItem,
   // HeadImg,
-  HeadItem
+  // HeadItem
 } from '@src/styled';
 
 
@@ -22,9 +24,14 @@ export const Head: React.SFC<ProfitProps> = (props) => {
       // <HeadImg src={headBg} alt={'Head'} />
   return (
     <HeadWrapper>
-      <HeadItem>
-        
-      </HeadItem>
+      <HeadCarousel>
+        <HeadCarouselItem item={'1'}>
+          
+        </HeadCarouselItem>
+        <HeadCarouselItem item={'2'}>
+          
+        </HeadCarouselItem>
+      </HeadCarousel>
     </HeadWrapper>
   );
 }
