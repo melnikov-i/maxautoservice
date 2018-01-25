@@ -6,11 +6,11 @@ import {
 
 import {
   HeadWrapper,
-  HeadImg,
+  // HeadImg,
   HeadItem
 } from '@src/styled';
 
-const headBg = require('@src/images/head-bg');
+
 
 interface ProfitProps {
   head: CurrentHeadDataInterface,
@@ -19,9 +19,9 @@ interface ProfitProps {
 export const Head: React.SFC<ProfitProps> = (props) => {
   const { head } = props;
   console.log(head);
+      // <HeadImg src={headBg} alt={'Head'} />
   return (
     <HeadWrapper>
-      <HeadImg src={headBg} alt={'Head'} />
       <HeadItem>
         
       </HeadItem>

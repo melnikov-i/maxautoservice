@@ -32,7 +32,7 @@ import {
   
   LayoutScreenHeader,
 
-
+  YELLOW_COLOR
   
   // LayoutScreenHeaderSpan,
   // LayoutProfitList,
@@ -50,11 +50,14 @@ injectGlobal`
   * {
     margin: 0;
     padding: 0;
-    --font-size: 0;
+    font-size: 0;
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: #000;
+    &::selection {
+      background-color: ${YELLOW_COLOR};
+    }
   }
 
   html, body {

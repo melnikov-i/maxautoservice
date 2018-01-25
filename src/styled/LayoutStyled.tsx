@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 import {
   LAYOUT_BIG_MAX_WIDTH,
+  YELLOW_COLOR,
+  MIDDLE_GRAY_COLOR,
+  GLOBAL_INDENT
   // PROFIT_ICON_SIZE,
   // PROFIT_ICON_FONT_SIZE
 } from '@src/styled';
@@ -12,6 +15,7 @@ export const LayoutWrapper = styled.div`
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+
 `;
 
 export const LayoutTop = styled.div`
@@ -52,14 +56,15 @@ export const LayoutTopLogoName = styled.p`
 `;
 
 export const LayoutTopLogoNameSpan = styled.span`
-  color: rgb(255, 204, 54);
+  color: ${MIDDLE_GRAY_COLOR};
+  font-size: 32px;
 `;
 
 export const LayoutTopLogoDescription = styled.p`
   font-size: 14px;
   font-weight: normal;
   font-style: italic;
-  color: #666;
+  color: ${MIDDLE_GRAY_COLOR};
   margin: -20px 0 0 70px;
 `;
 
@@ -78,7 +83,7 @@ export const LayoutTopPhoneNumber = styled.p`
     font-weight: normal;
     font-size: 22px;
     margin-right: 5px;
-    color: rgb(255, 204, 54);
+    color: ${YELLOW_COLOR};
   }
 `;
 
@@ -158,11 +163,11 @@ font-size: 14px;
 
 export const LayoutScreenHeader = styled.h3`
   font-size: 30px;
-  margin-left: 1.6%;
+  margin-left: ${GLOBAL_INDENT};
 `;
 
 // export const LayoutScreenHeaderSpan = styled.span`
-//   color: rgb(255, 204, 54);
+//   color: ${YELLOW_COLOR};
 // `;
 
 export const LayoutProfitList = styled.ul`

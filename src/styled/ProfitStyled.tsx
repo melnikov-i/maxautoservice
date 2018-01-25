@@ -6,12 +6,15 @@ import {
 
 import {
   PROFIT_ICON_SIZE,
-  PROFIT_ICON_FONT_SIZE
+  PROFIT_ICON_FONT_SIZE,
+  YELLOW_COLOR,
+  BLACK_COLOR,
+  GLOBAL_INDENT
 } from '@src/styled';
 
 export const ProfitItem = styled.div`
   width: 30.1333%;
-  margin: 1.6%;
+  margin: ${GLOBAL_INDENT};
   display: inline-block;
   vertical-align: top;
 `;
@@ -26,8 +29,8 @@ export const ProfitItemIcon = styled.div`
     width: ${PROFIT_ICON_SIZE};
     height: ${PROFIT_ICON_SIZE};
     border-radius: 50%;
-    color: #666;
-    background-color: rgb(255, 204, 54);
+    color: ${BLACK_COLOR};
+    background-color: ${YELLOW_COLOR};
     font-size: ${PROFIT_ICON_FONT_SIZE};
     font-family: 'FontAwesome';
     font-weight: normal;
