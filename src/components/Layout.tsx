@@ -92,7 +92,7 @@ interface LayoutProps {
 
 export const Layout: React.SFC<LayoutProps> = (props) => {
   const { PageData } = props;
-  console.log(PageData);
+  // console.log(PageData);
 
 
   return (
@@ -115,7 +115,7 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           </LayoutTopPhoneNumber>
         </LayoutTopPhone>
       </LayoutTop>
-      <HeadConnected head={PageData.head} />
+      <HeadConnected />
       <LayoutContent>
         <LayoutProfit>
           <LayoutScreenHeader>
@@ -123,7 +123,6 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           </LayoutScreenHeader>
     {
       PageData.profit.map((e, i) => {
-        console.log(e);
         return (
           <ProfitConnected key={i} profit={e} />
         )

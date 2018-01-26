@@ -1,56 +1,52 @@
-import styled from 'styled-components';
-
-const slide1 = require('@src/images/slide_1');
-const slide2 = require('@src/images/slide_2');
+import styled, { keyframes } from 'styled-components';
 
 import {
-  LAYOUT_BIG_MAX_WIDTH,
-  BIG_SCREEN_HEAD_MIN_HEIGHT
-  // BIG_SCREEN_MAX
+  CarouselItemStyleType,
+  CarouselStyledType
+} from '@src/interfaces';
+
+import {
+  BIG_SCREEN_HEAD_MIN_HEIGHT,
 } from '@src/styled';
 
 export const HeadWrapper = styled.div`
   box-sizing: border-box;
+  overflow: hidden;
   width: 100%;
 `;
 
+const moveToTheLeft = keyframes`
+  0% { margin-left: 0; }
+  100% { margin-left: -50%; }
+`;
+
 export const HeadCarousel = styled.div`
-  width: 100%;
-  overflow: hidden;
+  width: ${
+    (props: CarouselStyledType) => (
+      String(props.width * 100)
+    )
+  }%;
+
   height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
 `;
 
 export const HeadCarouselItem = styled.div`
-  width: 100%;
+  width: ${
+    (props: CarouselItemStyleType) => (
+      String(100 / props.width)
+    )
+  }%;
   display: inline-block;
   vertical-align: top;
+  background-image: url(${(props: CarouselItemStyleType) => props.image});
   min-height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
-  background-image: url(${
-    (props: {item: string}) => {
-      switch (props.item) {
-        case '1': return slide1;
-        case '2': return slide2;
-      }
-    }
-  });
   background-position: center center;
   background-size: cover;
+  animation-name: ${ moveToTheLeft };
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay: ${(props: CarouselItemStyleType) => props.delay}s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 `;
-  
-export const HeadItem = styled.div`
-  max-width: ${LAYOUT_BIG_MAX_WIDTH};
-`;
-
-  // height: 600px;
-  // background-repeat: no-repeat;
-// padding: 20px 30px;
-// background-color: rgba(180, 180, 180, .4);
-// height: 600px;
-// font-size: 14px;
-
-  // min-width: 0;
-  // max-width: 100%;
-  // margin: 0;
-  // width: 100%;
-
-

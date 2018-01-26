@@ -4,13 +4,8 @@ import {
   PageDataInterface
 } from '@src/interfaces';
 
-import {
-
-} from '@src/redux/login';
-
 export type State = {
   readonly PageData: PageDataInterface,
-  readonly Hello: string,
 };
 
 const PageDataInitialState = {
@@ -102,19 +97,10 @@ const PageDataInitialState = {
       + 'гарантию качества.'*/
     },
   ],
-  head: {
-    header: 'Заголовок',
-  }
 }
 
 export const reducer = combineReducers({
   PageData: ( state = PageDataInitialState, action ) => {
-    switch ( action.type ) {
-      default:
-        return state;
-    }
-  },
-  Hello: ( state = 'Hello', action ) => {
     switch ( action.type ) {
       default:
         return state;

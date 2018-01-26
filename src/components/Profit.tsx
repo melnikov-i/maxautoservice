@@ -17,7 +17,7 @@ interface ProfitProps {
 
 export const Profit: React.SFC<ProfitProps> = (props) => {
   const { profit } = props;
-  console.log(profit);
+  // console.log(profit);
   return (
     <ProfitItem>
       <ProfitItemIcon icon={profit.icon} />

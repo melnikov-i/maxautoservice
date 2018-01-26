@@ -4,10 +4,6 @@ export interface CurrentProfitDataInterface {
   text: string,
 }
 
-export interface CurrentHeadDataInterface {
-  header: string,  
-}
-
 export interface PageDataInterface {
   logo: {
     yellow: string,
@@ -16,12 +12,33 @@ export interface PageDataInterface {
   phone: string,
   profitHeader: string,
   profit: CurrentProfitDataInterface[],
-  head: CurrentHeadDataInterface,
 }
 
 interface CurrentProfitIconInterface {
   icon: CurrentProfitDataInterface['icon']
 }
 
+interface HeadCarouselItemInterface {
+  width: number,
+  image: any,
+  delay: string,
+}
+
+interface HeadCarouselInterface {
+  width: number,
+  
+}
+
 export type ProfitIconStyleType =
   CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;
+
+export type CarouselItemStyleType =
+  HeadCarouselItemInterface & React.HTMLProps<HTMLDivElement>;
+
+export type CarouselStyledType =
+  HeadCarouselInterface & React.HTMLProps<HTMLDivElement>;
+
+export interface CarouselItemDataInterface {
+  beforeDelay: string,
+  images: any[],
+}
