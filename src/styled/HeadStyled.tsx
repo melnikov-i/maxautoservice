@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled/*, { keyframes }*/ from 'styled-components';
 
 import {
-  CarouselItemStyleType,
+  CarouselItemStyledType,
   CarouselStyledType
 } from '@src/interfaces';
 
@@ -15,48 +15,44 @@ export const HeadWrapper = styled.div`
   width: 100%;
 `;
 
-const moveToTheLeft = keyframes`
-  0% { margin-left: 0; }
-  100% { margin-left: -50%; }
-`;
+// const moveToTheLeft = keyframes`
+//   0% { margin-left: 0; }
+//   100% { margin-left: -100%; }
+// `;
 
 export const HeadCarousel = styled.div`
   width: ${
-    (props: CarouselStyledType) => (
-      String(props.width * 100)
+    ( props: CarouselStyledType ) => (
+      String(props.carouselWidth * 100)
     )
   }%;
-
+  margin-left: ${
+    ( props: CarouselStyledType ) => (
+      props.marginLeft
+    )
+  }%;
   height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
 `;
+  // animation-name: ${ moveToTheLeft };
+  // animation-duration: 1s;
+  // animation-timing-function: linear;
+  // animation-delay: ${(props: CarouselStyledType) => props.delay}s;
+  // animation-iteration-count: 1;
+  // animation-direction: normal;
+  // animation-fill-mode: forwards;
 
-export const HeadCarouselItem = styled.div.attrs({
-  margin: ${(props: CarouselItemStyleType) => props.margin }
-})`
+
+export const HeadCarouselItem = styled.div`
   width: ${
-    (props: CarouselItemStyleType) => (
-      String(100 / props.width)
+    (props: CarouselItemStyledType) => (
+      String(100 / props.carouselWidth)
     )
   }%;
   margin: 0;
   display: inline-block;
   vertical-align: top;
-  background-image: url(${(props: CarouselItemStyleType) => props.image});
+  background-image: url(${(props: CarouselItemStyledType) => props.image});
   min-height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
   background-position: center center;
   background-size: cover;
-  animation-name: ${
-    (props: CarouselItemStyleType) => (
-      props.first
-      ? moveToTheLeft
-      : 'none'
-    )
-  };
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-delay: ${(props: CarouselItemStyleType) => props.delay}s;
-  animation-iteration-count: 1;
-  animation-delay: 3s;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
 `;

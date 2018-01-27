@@ -41,7 +41,7 @@ export const asyncActionCreators = {
         dispatch(
           syncActionCreators.carouselItemDataUpdate(payload)
         )
-      }, 5000);
+      }, 1000);
     }
   }
 };

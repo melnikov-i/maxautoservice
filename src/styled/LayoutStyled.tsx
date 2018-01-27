@@ -89,6 +89,15 @@ export const LayoutTopPhoneNumber = styled.p`
 
 
 
+export const LayoutHead = styled.div`
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+`;
+
+
+
+
 export const LayoutContent = styled.div`
   max-width: ${LAYOUT_BIG_MAX_WIDTH};
   width: 100%;

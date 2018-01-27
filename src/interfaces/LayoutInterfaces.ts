@@ -18,29 +18,43 @@ interface CurrentProfitIconInterface {
   icon: CurrentProfitDataInterface['icon']
 }
 
-interface HeadCarouselItemInterface {
-  width: number,
-  image: any,
-  delay: string,
-  first: boolean,
-  margin: string,
+export interface CarouselItemDataInterface {
+  animationDelay: string,
+  marginLeft: string,
+  images: any[],
 }
+
+
+interface HeadCarouselItemInterface {
+  carouselWidth: number,
+  image: any,
+  // delay: string,
+  // first: boolean,
+}
+
+export type CarouselItemStyledType =
+  HeadCarouselItemInterface & React.HTMLProps<HTMLDivElement>;
+
+
+
 
 interface HeadCarouselInterface {
-  width: number,
-  
+  carouselWidth: number,
+  delay: string,
+  marginLeft: string,
 }
-
-export type ProfitIconStyleType =
-  CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;
-
-export type CarouselItemStyleType =
-  HeadCarouselItemInterface & React.HTMLProps<HTMLDivElement>;
 
 export type CarouselStyledType =
   HeadCarouselInterface & React.HTMLProps<HTMLDivElement>;
 
-export interface CarouselItemDataInterface {
-  beforeDelay: string,
-  images: any[],
-}
+
+
+
+
+
+
+
+export type ProfitIconStyleType =
+  CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;
+
+

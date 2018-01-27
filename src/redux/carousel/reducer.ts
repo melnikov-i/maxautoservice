@@ -18,8 +18,10 @@ const slide1 = require('@src/images/slide_1');
 const slide2 = require('@src/images/slide_2');
 
 const CarouselItemDataInitialState: CarouselItemDataInterface = {
-  beforeDelay: '5',
+  animationDelay: '5',
+  marginLeft: '-100',
   images: [
+    slide2,
     slide1,
     slide2,
   ]

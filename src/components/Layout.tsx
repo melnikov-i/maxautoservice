@@ -19,7 +19,7 @@ import {
   LayoutTopPhone,
   LayoutTopPhoneNumber,
 
-  // LayoutHead,
+  LayoutHead,
   
   LayoutContent,
   LayoutProfit,
@@ -115,7 +115,13 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           </LayoutTopPhoneNumber>
         </LayoutTopPhone>
       </LayoutTop>
-      <HeadConnected />
+
+      <LayoutHead>
+        <HeadConnected />        
+      </LayoutHead>
+
+
+      
       <LayoutContent>
         <LayoutProfit>
           <LayoutScreenHeader>

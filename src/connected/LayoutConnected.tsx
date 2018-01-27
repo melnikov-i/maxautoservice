@@ -5,12 +5,11 @@ import { RootState } from '@src/redux';
 import { Layout } from '@src/components';
 
 import {
-  PageDataInterface
+  PageDataInterface,
 } from '@src/interfaces';
 
 import {
-  PageDataSelecror
-} from '@src/selectors';
+  PageDataSelecror,} from '@src/selectors';
 
 const mapStateToProps = createStructuredSelector<RootState, {
     PageData: PageDataInterface,

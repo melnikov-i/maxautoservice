@@ -5,7 +5,7 @@ import {
 } from '@src/interfaces';
 
 import {
-  HeadWrapper,
+  // HeadWrapper,
   HeadCarousel,
   HeadCarouselItem,
   
@@ -29,11 +29,12 @@ export const Head: React.SFC<HeadProps> = (props) => {
   } = props;
   console.log('CarouselItemData:', CarouselItemData);
 
-  const getCarouselItemDataLength = (): number => {
+  const updateCarouselIntemData = () => {
     const slicedImages: CarouselItemDataInterface['images'] = 
       CarouselItemData.images.slice(1);
     const newImages: CarouselItemDataInterface['images'] = [
-      ...slicedImages, CarouselItemData.images['0']
+      ...slicedImages,
+      CarouselItemData.images[CarouselItemData.images.length] = CarouselItemData.images['0']
     ];
     const newItemData: CarouselItemDataInterface = {
       ...CarouselItemData,
@@ -41,25 +42,66 @@ export const Head: React.SFC<HeadProps> = (props) => {
     };
     console.log('newItemData:', newItemData);
     makeCarouselItemDataUpdate(newItemData);
+  };
 
+  const moveSlides = (i: number) => {
+    // console.log('i =', i);
+    const element = document.getElementById('carousel');
+    // console.log('element:', element);
+    if ( element !== null ) {
+      if ( i < 202 ) {
+        setTimeout(() => {
+          element.style.marginLeft = '-' + String(i) + '%';
+          const k: number = i + 2;
+          moveSlides(k);
+        }, 20);
+      } else {
+        // element.style.marginLeft = '0';
+        updateCarouselIntemData();
+      }
+    }
+  };
+
+  const removeMovingHandler = () => {
+    console.log('bbbbb!!!!');
+    document.removeEventListener('DOMContentLoaded', removeMovingHandler);
+    setTimeout(() => {
+      console.log('Move');
+      moveSlides(100);
+    }, 3000);
+  };
+
+  const addMovingHandler = () => {
+    console.log('aaaaa!!!!');
+    if ( document.getElementById('carousel') === null ) {
+      document.addEventListener('DOMContentLoaded', removeMovingHandler);      
+    } else {
+      setTimeout(() => {
+        console.log('Move');
+        moveSlides(100);
+      }, 3000);
+    }
+  };
+
+  const getCarouselItemDataLength = (): number => {
+    addMovingHandler();
     return CarouselItemData.images.length;
   }
   const carouselItemDataLength: number = getCarouselItemDataLength();
 
   return (
-    <HeadWrapper>
       <HeadCarousel
-      width={carouselItemDataLength}>
+      id={'carousel'}
+      carouselWidth={carouselItemDataLength}
+      delay={CarouselItemData.animationDelay}
+      marginLeft={CarouselItemData.marginLeft}>
   {
     CarouselItemData.images.map((e, i) => {
       console.log('e - ', i, ':', e);
       return (
         <HeadCarouselItem 
-        width={carouselItemDataLength}
-        delay={String(Math.imul(i, 10))}
+        carouselWidth={carouselItemDataLength}
         image={e}
-        first={(i === 0) ? true : false}
-        margin={'0'}
         key={i}>
 
         </HeadCarouselItem>
@@ -67,12 +109,5 @@ export const Head: React.SFC<HeadProps> = (props) => {
     })
   }
       </HeadCarousel>
-    </HeadWrapper>
   );
 }
-        // <HeadCarouselItem image={test.slide_1}>
-          
-        // </HeadCarouselItem>
-        // <HeadCarouselItem image={slide2}>
-          
-        // </HeadCarouselItem>

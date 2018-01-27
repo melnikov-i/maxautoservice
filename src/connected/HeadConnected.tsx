@@ -18,10 +18,10 @@ import {
 } from '@src/redux/carousel';
 
 const mapStateToProps = createStructuredSelector<RootState, {
-  CarouselItemData: CarouselItemDataInterface,
-}>({
-  CarouselItemData: CarouselItemDataSelector
-});
+    CarouselItemData: CarouselItemDataInterface,
+  }>({
+    CarouselItemData: CarouselItemDataSelector
+  });
 
 const mapDispatchToProps = ( dispatch: Dispatch ) => bindActionCreators({
   makeCarouselItemDataUpdate: 
