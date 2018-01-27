@@ -22,6 +22,8 @@ interface HeadCarouselItemInterface {
   width: number,
   image: any,
   delay: string,
+  first: boolean,
+  margin: string,
 }
 
 interface HeadCarouselInterface {

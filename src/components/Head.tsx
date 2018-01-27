@@ -25,22 +25,22 @@ interface HeadProps {
 export const Head: React.SFC<HeadProps> = (props) => {
   const {
     CarouselItemData,
-    // makeCarouselItemDataUpdate
+    makeCarouselItemDataUpdate
   } = props;
   console.log('CarouselItemData:', CarouselItemData);
 
   const getCarouselItemDataLength = (): number => {
-    // const slicedImages: CarouselItemDataInterface['images'] = 
-    //   CarouselItemData.images.slice(1);
-    // const newImages: CarouselItemDataInterface['images'] = [
-    //   ...slicedImages, CarouselItemData.images['0']
-    // ];
-    // const newItemData: CarouselItemDataInterface = {
-    //   ...CarouselItemData,
-    //   ['images']: newImages,
-    // };
-    // console.log('newItemData:', newItemData);
-    // makeCarouselItemDataUpdate(newItemData);
+    const slicedImages: CarouselItemDataInterface['images'] = 
+      CarouselItemData.images.slice(1);
+    const newImages: CarouselItemDataInterface['images'] = [
+      ...slicedImages, CarouselItemData.images['0']
+    ];
+    const newItemData: CarouselItemDataInterface = {
+      ...CarouselItemData,
+      ['images']: newImages,
+    };
+    console.log('newItemData:', newItemData);
+    makeCarouselItemDataUpdate(newItemData);
 
     return CarouselItemData.images.length;
   }
@@ -58,6 +58,8 @@ export const Head: React.SFC<HeadProps> = (props) => {
         width={carouselItemDataLength}
         delay={String(Math.imul(i, 10))}
         image={e}
+        first={(i === 0) ? true : false}
+        margin={'0'}
         key={i}>
 
         </HeadCarouselItem>

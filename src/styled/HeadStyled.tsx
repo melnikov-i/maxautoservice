@@ -30,23 +30,33 @@ export const HeadCarousel = styled.div`
   height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
 `;
 
-export const HeadCarouselItem = styled.div`
+export const HeadCarouselItem = styled.div.attrs({
+  margin: ${(props: CarouselItemStyleType) => props.margin }
+})`
   width: ${
     (props: CarouselItemStyleType) => (
       String(100 / props.width)
     )
   }%;
+  margin: 0;
   display: inline-block;
   vertical-align: top;
   background-image: url(${(props: CarouselItemStyleType) => props.image});
   min-height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
   background-position: center center;
   background-size: cover;
-  animation-name: ${ moveToTheLeft };
-  animation-duration: 10s;
+  animation-name: ${
+    (props: CarouselItemStyleType) => (
+      props.first
+      ? moveToTheLeft
+      : 'none'
+    )
+  };
+  animation-duration: 1s;
   animation-timing-function: linear;
   animation-delay: ${(props: CarouselItemStyleType) => props.delay}s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
   animation-direction: normal;
   animation-fill-mode: forwards;
 `;
