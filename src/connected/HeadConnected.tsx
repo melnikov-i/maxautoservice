@@ -14,7 +14,7 @@ import {
 } from '@src/selectors';
 
 import {
-  asyncActionCreators
+  syncActionCreators
 } from '@src/redux/carousel';
 
 const mapStateToProps = createStructuredSelector<RootState, {
@@ -24,8 +24,8 @@ const mapStateToProps = createStructuredSelector<RootState, {
   });
 
 const mapDispatchToProps = ( dispatch: Dispatch ) => bindActionCreators({
-  makeCarouselItemDataUpdate: 
-    asyncActionCreators.makeCarouselItemDataUpdate,
+  carouselItemDataUpdate: 
+    syncActionCreators.carouselItemDataUpdate,
 }, dispatch);
 
 export const HeadConnected = connect(

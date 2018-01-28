@@ -18,18 +18,25 @@ interface CurrentProfitIconInterface {
   icon: CurrentProfitDataInterface['icon']
 }
 
+interface CarouselSlidesInterface {
+  images: any,
+  header: string,
+  text: string,
+};
+
 export interface CarouselItemDataInterface {
   animationDelay: string,
   marginLeft: string,
-  images: any[],
+  direction: boolean,
+  delay: string,
+  isFirst: boolean,
+  slides: CarouselSlidesInterface[],
 }
 
 
 interface HeadCarouselItemInterface {
   carouselWidth: number,
   image: any,
-  // delay: string,
-  // first: boolean,
 }
 
 export type CarouselItemStyledType =

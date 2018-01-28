@@ -2,7 +2,7 @@ import {
   CarouselItemDataInterface
 } from '@src/interfaces';
 
-import { Dispatch } from '@src/redux';
+// import { Dispatch } from '@src/redux';
 
 export const CAROUSEL_ITEM_DATA_UPDATE = 
   'CAROUSEL_ITEM_DATA_UPDATE';
@@ -34,14 +34,24 @@ export const syncActionCreators = {
 };
 
 export const asyncActionCreators = {
-  makeCarouselItemDataUpdate:
-  ( payload: CarouselItemDataInterface ) => {
-    return ( dispatch: Dispatch ) => {
-      setTimeout(() => {
-        dispatch(
-          syncActionCreators.carouselItemDataUpdate(payload)
-        )
-      }, 1000);
-    }
-  }
+  // makeCarouselItemDataUpdate:
+  // ( payload: CarouselItemDataInterface ) => {
+  //   return ( dispatch: Dispatch ) => {
+  //     if ( payload.now ) {
+  //       let max_id = setTimeout(function () {});
+  //       while (max_id--) {
+  //         clearTimeout(max_id);
+  //       }
+  //       dispatch(
+  //         syncActionCreators.carouselItemDataUpdate(payload)
+  //       );
+  //     } else {
+  //       setTimeout(() => {
+  //         dispatch(
+  //           syncActionCreators.carouselItemDataUpdate(payload)
+  //         );
+  //       }, payload.delay);
+  //     }
+  //   }
+  // }
 };

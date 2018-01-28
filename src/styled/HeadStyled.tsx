@@ -7,17 +7,15 @@ import {
 
 import {
   BIG_SCREEN_HEAD_MIN_HEIGHT,
+  DARK_GRAY_COLOR,
+  YELLOW_COLOR,
+  HEAD_HEADER_BG_COLOR,
 } from '@src/styled';
 
-export const HeadWrapper = styled.div`
-  box-sizing: border-box;
-  overflow: hidden;
-  width: 100%;
-`;
-
-// const moveToTheLeft = keyframes`
-//   0% { margin-left: 0; }
-//   100% { margin-left: -100%; }
+// export const HeadWrapper = styled.div`
+//   box-sizing: border-box;
+//   overflow: hidden;
+//   width: 100%;
 // `;
 
 export const HeadCarousel = styled.div`
@@ -33,14 +31,6 @@ export const HeadCarousel = styled.div`
   }%;
   height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
 `;
-  // animation-name: ${ moveToTheLeft };
-  // animation-duration: 1s;
-  // animation-timing-function: linear;
-  // animation-delay: ${(props: CarouselStyledType) => props.delay}s;
-  // animation-iteration-count: 1;
-  // animation-direction: normal;
-  // animation-fill-mode: forwards;
-
 
 export const HeadCarouselItem = styled.div`
   width: ${
@@ -51,8 +41,81 @@ export const HeadCarouselItem = styled.div`
   margin: 0;
   display: inline-block;
   vertical-align: top;
-  background-image: url(${(props: CarouselItemStyledType) => props.image});
+  background-image: url(${
+    (props: CarouselItemStyledType) => (
+      props.image
+    )
+  });
   min-height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
   background-position: center center;
   background-size: cover;
+  position: relative;
+`;
+
+export const HeadCarouselItemBackwardAnchor = styled.a`
+  display: block;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  z-index: 1;
+  background-color: ${ DARK_GRAY_COLOR };
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  border-radius: 50%;
+  cursor: pointer;
+  &::before {
+    content: "\\f104";
+    font-family: 'FontAwesome';
+    display: block;
+    margin-left: 18px;
+    height: 60px;
+    line-height: 58px;
+    color: ${ YELLOW_COLOR };
+    font-size: 48px;
+  }
+`;
+
+export const HeadCarouselItemForwardAnchor = styled.a`
+  display: block;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  z-index: 1;
+  background-color: ${ DARK_GRAY_COLOR };
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  border-radius: 50%;
+  cursor: pointer;
+  &::before {
+    content: "\\f105";
+    font-family: 'FontAwesome';
+    display: block;
+    margin-left: 24px;
+    height: 60px;
+    line-height: 58px;
+    color: ${ YELLOW_COLOR };
+    font-size: 48px;
+  }
+`;
+
+export const HeadCarouselItemTextBackground = styled.div`
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 1;
+  padding: 20px;
+  background-color: ${ HEAD_HEADER_BG_COLOR };
+`;
+
+export const HeadCarouselItemHeader = styled.h2`
+  font-size: 32px;
+`;
+
+export const HeadCarouselItemText = styled.p`
+  font-size: 24px;
+  margin-top: 10px;
 `;

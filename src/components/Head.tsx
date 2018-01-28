@@ -5,87 +5,169 @@ import {
 } from '@src/interfaces';
 
 import {
-  // HeadWrapper,
   HeadCarousel,
   HeadCarouselItem,
-  
-
-
-
-  // HeadImg,
-  // HeadItem
+  HeadCarouselItemForwardAnchor,
+  HeadCarouselItemBackwardAnchor,
+  HeadCarouselItemTextBackground,
+  HeadCarouselItemHeader,
+  HeadCarouselItemText,
 } from '@src/styled';
 
 interface HeadProps {
   CarouselItemData: CarouselItemDataInterface
-  makeCarouselItemDataUpdate: 
+  carouselItemDataUpdate: 
   ( payload: CarouselItemDataInterface ) => any,
 }
 
 export const Head: React.SFC<HeadProps> = (props) => {
   const {
     CarouselItemData,
-    makeCarouselItemDataUpdate
+    carouselItemDataUpdate
   } = props;
-  console.log('CarouselItemData:', CarouselItemData);
 
-  const updateCarouselIntemData = () => {
-    const slicedImages: CarouselItemDataInterface['images'] = 
-      CarouselItemData.images.slice(1);
-    const newImages: CarouselItemDataInterface['images'] = [
-      ...slicedImages,
-      CarouselItemData.images[CarouselItemData.images.length] = CarouselItemData.images['0']
+  const updateCarouselItemDataForForwardMoving = () => {
+    const slidesFirstItems: CarouselItemDataInterface['slides'] = 
+      CarouselItemData.slides.slice(1);
+    const slides: CarouselItemDataInterface['slides'] = [
+      ...slidesFirstItems,
+      CarouselItemData.slides['1']
     ];
-    const newItemData: CarouselItemDataInterface = {
+    const payload: CarouselItemDataInterface = {
       ...CarouselItemData,
-      ['images']: newImages,
+      ['direction']: true,
+      ['isFirst']: false,
+      ['slides']: slides,
     };
-    console.log('newItemData:', newItemData);
-    makeCarouselItemDataUpdate(newItemData);
+    return payload;
+  };
+
+  const updateCarouselItemDataForBackwardMoving = () => {
+    const slidesLastItems: CarouselItemDataInterface['slides'] =
+      CarouselItemData.slides.slice(
+        0,
+        CarouselItemData.slides.length - 1 
+      );
+    const slides: CarouselItemDataInterface['slides'] = [
+      CarouselItemData.slides[CarouselItemData.slides.length - 2],
+      ...slidesLastItems
+    ];
+    const payload: CarouselItemDataInterface = {
+      ...CarouselItemData,
+      ['direction']: false,
+      ['isFirst']: false,
+      ['slides']: slides,
+    };
+    return payload;
+  };
+  
+  const updateCarouselIntemData = () => {
+    if ( CarouselItemData.direction ) {
+      const payload = updateCarouselItemDataForForwardMoving();
+      setTimeout(() => {
+        carouselItemDataUpdate(payload);
+      }, CarouselItemData.delay);
+    } else {
+      const payload = updateCarouselItemDataForBackwardMoving();
+      setTimeout(() => {
+        carouselItemDataUpdate(payload);
+      }, CarouselItemData.delay);
+    }
+  };
+
+  const ForwardMovingHandler = 
+  (e: React.MouseEvent<HTMLAnchorElement>) => {
+    let max_id = setTimeout(function () {});
+    while (max_id--) {
+      clearTimeout(max_id);
+    }
+    let payload: CarouselItemDataInterface = CarouselItemData;
+    if ( CarouselItemData.isFirst ) {
+      payload = {
+        ...CarouselItemData,
+        ['direction']: true,
+        ['isFirst']: false,
+      };
+    } else {
+      payload = updateCarouselItemDataForForwardMoving();      
+    }
+    carouselItemDataUpdate(payload);
+  };
+
+  const BackwardMovingHandler = 
+  (e: React.MouseEvent<HTMLAnchorElement>) => {
+    let max_id = setTimeout(function () {});
+    while (max_id--) {
+      clearTimeout(max_id);
+    }
+    let payload: CarouselItemDataInterface = CarouselItemData;
+    if ( CarouselItemData.isFirst ) {
+      console.log('FIRST');
+      payload = {
+        ...CarouselItemData,
+        ['direction']: false,
+        ['isFirst']: false,
+      };
+    } else {
+      console.log('LAST');
+      payload = updateCarouselItemDataForBackwardMoving();      
+    }
+    carouselItemDataUpdate(payload);
   };
 
   const moveSlides = (i: number) => {
-    // console.log('i =', i);
     const element = document.getElementById('carousel');
-    // console.log('element:', element);
     if ( element !== null ) {
-      if ( i < 202 ) {
-        setTimeout(() => {
-          element.style.marginLeft = '-' + String(i) + '%';
-          const k: number = i + 2;
-          moveSlides(k);
-        }, 20);
+      if ( i === 100 ) element.style.marginLeft = '-100%';
+      if ( CarouselItemData.direction ) {
+        if ( i < 202 ) {
+          setTimeout(() => {
+            element.style.marginLeft = '-' + String(i) + '%';
+            const k: number = i + 2;
+            moveSlides(k);
+          }, 20);
+        } else {
+          updateCarouselIntemData();
+        }        
       } else {
-        // element.style.marginLeft = '0';
-        updateCarouselIntemData();
+        if ( i > -2 ) {
+          setTimeout(() => {
+            element.style.marginLeft = '-' + String(i) + '%';
+            const k: number = i - 2;
+            moveSlides(k);
+          }, 20);
+        } else {
+          updateCarouselIntemData();
+        }
       }
     }
   };
 
   const removeMovingHandler = () => {
-    console.log('bbbbb!!!!');
-    document.removeEventListener('DOMContentLoaded', removeMovingHandler);
+    document.removeEventListener(
+      'DOMContentLoaded',
+      removeMovingHandler
+    );
     setTimeout(() => {
-      console.log('Move');
       moveSlides(100);
-    }, 3000);
+    }, CarouselItemData.delay);
   };
 
   const addMovingHandler = () => {
-    console.log('aaaaa!!!!');
     if ( document.getElementById('carousel') === null ) {
-      document.addEventListener('DOMContentLoaded', removeMovingHandler);      
+      document.addEventListener(
+        'DOMContentLoaded',
+        removeMovingHandler
+      );      
     } else {
-      setTimeout(() => {
-        console.log('Move');
-        moveSlides(100);
-      }, 3000);
+      moveSlides(100);
     }
   };
 
+
   const getCarouselItemDataLength = (): number => {
     addMovingHandler();
-    return CarouselItemData.images.length;
+    return CarouselItemData.slides.length;
   }
   const carouselItemDataLength: number = getCarouselItemDataLength();
 
@@ -95,15 +177,25 @@ export const Head: React.SFC<HeadProps> = (props) => {
       carouselWidth={carouselItemDataLength}
       delay={CarouselItemData.animationDelay}
       marginLeft={CarouselItemData.marginLeft}>
+        <HeadCarouselItemForwardAnchor
+        onClick={BackwardMovingHandler} />
+        <HeadCarouselItemBackwardAnchor
+        onClick={ForwardMovingHandler} />
   {
-    CarouselItemData.images.map((e, i) => {
-      console.log('e - ', i, ':', e);
+    CarouselItemData.slides.map((e, i) => {
       return (
         <HeadCarouselItem 
         carouselWidth={carouselItemDataLength}
-        image={e}
+        image={e.images}
         key={i}>
-
+          <HeadCarouselItemTextBackground>
+            <HeadCarouselItemHeader>
+              { e.header }
+            </HeadCarouselItemHeader>
+            <HeadCarouselItemText>
+              { e.text }
+            </HeadCarouselItemText>
+          </HeadCarouselItemTextBackground>
         </HeadCarouselItem>
       );
     })

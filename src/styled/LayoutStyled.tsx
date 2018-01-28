@@ -93,6 +93,7 @@ export const LayoutHead = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
+  position: relative;
 `;
 
 
@@ -170,14 +171,10 @@ font-size: 14px;
 `;
 
 
-export const LayoutScreenHeader = styled.h3`
+export const LayoutScreenHeader = styled.h1`
   font-size: 30px;
   margin-left: ${GLOBAL_INDENT};
 `;
-
-// export const LayoutScreenHeaderSpan = styled.span`
-//   color: ${YELLOW_COLOR};
-// `;
 
 export const LayoutProfitList = styled.ul`
   

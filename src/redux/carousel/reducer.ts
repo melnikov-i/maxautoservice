@@ -20,10 +20,25 @@ const slide2 = require('@src/images/slide_2');
 const CarouselItemDataInitialState: CarouselItemDataInterface = {
   animationDelay: '5',
   marginLeft: '-100',
-  images: [
-    slide2,
-    slide1,
-    slide2,
+  direction: false,
+  delay: '8000',
+  isFirst: true,
+  slides: [
+    {
+      images: slide2,
+      header: 'Сервисные акции',
+      text: 'Специальные предложения на запчасти Renault',
+    },
+    {
+      images: slide1,
+      header: 'Быстро и качественно',
+      text: 'Обслуживаем весь модельный ряд Renault',
+    },
+    {
+      images: slide2,
+      header: 'Сервисные акции',
+      text: 'Специальные предложения на запчасти Renault',
+    },
   ]
 };
 

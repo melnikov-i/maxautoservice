@@ -9,7 +9,7 @@ export const YELLOW_COLOR: string ='#fc3';
 export const BLACK_COLOR: string = '#000';
 export const DARK_GRAY_COLOR: string = '#333';
 export const MIDDLE_GRAY_COLOR: string = '#666';
-export const HEAD_HEADER_BG_COLOR: string = 'rgba(255, 255, 255, .65)';
+export const HEAD_HEADER_BG_COLOR: string = 'rgba(235, 235, 235, .65)';
 
 export const BIG_SCREEN_HEAD_MIN_HEIGHT: string = '425px';
 
