@@ -7,11 +7,29 @@ export interface CurrentProfitDataInterface {
 export interface PageDataInterface {
   logo: {
     yellow: string,
-    black: string
+    black: string,
+    header: string,
   },
   phone: string,
   profitHeader: string,
   profit: CurrentProfitDataInterface[],
+  description: {
+    header: string,
+    text: string[],
+    list: {
+      header: string,
+      text: string,
+      image: any,
+    }[],
+  },
+  address: {
+    header: string,
+    address: string,
+    addressIcon: string,
+    schedule: string,
+    scheduleIcon: string,
+    phoneIcon: string,
+  }
 }
 
 interface CurrentProfitIconInterface {
@@ -28,8 +46,8 @@ export interface CarouselItemDataInterface {
   animationDelay: string,
   marginLeft: string,
   direction: boolean,
-  delay: string,
   isFirst: boolean,
+  delay: string,
   slides: CarouselSlidesInterface[],
 }
 

@@ -26,7 +26,10 @@ export const Head: React.SFC<HeadProps> = (props) => {
     carouselItemDataUpdate
   } = props;
 
-  const updateCarouselItemDataForForwardMoving = () => {
+  let isFirst: CarouselItemDataInterface['isFirst'] = 
+    CarouselItemData.isFirst;
+
+  const updateCarouselItemDataWhenToTheLeftMoving = () => {
     const slidesFirstItems: CarouselItemDataInterface['slides'] = 
       CarouselItemData.slides.slice(1);
     const slides: CarouselItemDataInterface['slides'] = [
@@ -35,14 +38,14 @@ export const Head: React.SFC<HeadProps> = (props) => {
     ];
     const payload: CarouselItemDataInterface = {
       ...CarouselItemData,
-      ['direction']: true,
+      ['direction']: false,
       ['isFirst']: false,
       ['slides']: slides,
     };
     return payload;
   };
 
-  const updateCarouselItemDataForBackwardMoving = () => {
+  const updateCarouselItemDataWhenToTheRightMoving = () => {
     const slidesLastItems: CarouselItemDataInterface['slides'] =
       CarouselItemData.slides.slice(
         0,
@@ -54,7 +57,7 @@ export const Head: React.SFC<HeadProps> = (props) => {
     ];
     const payload: CarouselItemDataInterface = {
       ...CarouselItemData,
-      ['direction']: false,
+      ['direction']: true,
       ['isFirst']: false,
       ['slides']: slides,
     };
@@ -62,55 +65,53 @@ export const Head: React.SFC<HeadProps> = (props) => {
   };
   
   const updateCarouselIntemData = () => {
+    let payload: CarouselItemDataInterface = CarouselItemData;
     if ( CarouselItemData.direction ) {
-      const payload = updateCarouselItemDataForForwardMoving();
-      setTimeout(() => {
-        carouselItemDataUpdate(payload);
-      }, CarouselItemData.delay);
+      payload = updateCarouselItemDataWhenToTheRightMoving();
     } else {
-      const payload = updateCarouselItemDataForBackwardMoving();
-      setTimeout(() => {
-        carouselItemDataUpdate(payload);
-      }, CarouselItemData.delay);
+      payload = updateCarouselItemDataWhenToTheLeftMoving();
     }
+    setTimeout(() => {
+      carouselItemDataUpdate(payload);
+    }, CarouselItemData.delay);
   };
 
-  const ForwardMovingHandler = 
+  const ToTheLeftMovingHandler = 
   (e: React.MouseEvent<HTMLAnchorElement>) => {
     let max_id = setTimeout(function () {});
     while (max_id--) {
       clearTimeout(max_id);
     }
     let payload: CarouselItemDataInterface = CarouselItemData;
-    if ( CarouselItemData.isFirst ) {
-      payload = {
-        ...CarouselItemData,
-        ['direction']: true,
-        ['isFirst']: false,
-      };
-    } else {
-      payload = updateCarouselItemDataForForwardMoving();      
-    }
-    carouselItemDataUpdate(payload);
-  };
-
-  const BackwardMovingHandler = 
-  (e: React.MouseEvent<HTMLAnchorElement>) => {
-    let max_id = setTimeout(function () {});
-    while (max_id--) {
-      clearTimeout(max_id);
-    }
-    let payload: CarouselItemDataInterface = CarouselItemData;
-    if ( CarouselItemData.isFirst ) {
-      console.log('FIRST');
+    if ( isFirst ) {
       payload = {
         ...CarouselItemData,
         ['direction']: false,
         ['isFirst']: false,
       };
     } else {
-      console.log('LAST');
-      payload = updateCarouselItemDataForBackwardMoving();      
+      payload = updateCarouselItemDataWhenToTheLeftMoving();      
+    }
+    setTimeout(() => {
+      carouselItemDataUpdate(payload);
+    }, 100);
+  };
+
+  const ToTheRightMovingHandler = 
+  (e: React.MouseEvent<HTMLAnchorElement>) => {
+    let max_id = setTimeout(function () {});
+    while (max_id--) {
+      clearTimeout(max_id);
+    }
+    let payload: CarouselItemDataInterface = CarouselItemData;
+    if ( isFirst ) {
+      payload = {
+        ...CarouselItemData,
+        ['direction']: true,
+        ['isFirst']: false,
+      };
+    } else {
+      payload = updateCarouselItemDataWhenToTheRightMoving();      
     }
     carouselItemDataUpdate(payload);
   };
@@ -120,16 +121,6 @@ export const Head: React.SFC<HeadProps> = (props) => {
     if ( element !== null ) {
       if ( i === 100 ) element.style.marginLeft = '-100%';
       if ( CarouselItemData.direction ) {
-        if ( i < 202 ) {
-          setTimeout(() => {
-            element.style.marginLeft = '-' + String(i) + '%';
-            const k: number = i + 2;
-            moveSlides(k);
-          }, 20);
-        } else {
-          updateCarouselIntemData();
-        }        
-      } else {
         if ( i > -2 ) {
           setTimeout(() => {
             element.style.marginLeft = '-' + String(i) + '%';
@@ -137,6 +128,18 @@ export const Head: React.SFC<HeadProps> = (props) => {
             moveSlides(k);
           }, 20);
         } else {
+          isFirst = false;
+          updateCarouselIntemData();
+        }
+      } else {
+        if ( i < 202 ) {
+          setTimeout(() => {
+            element.style.marginLeft = '-' + String(i) + '%';
+            const k: number = i + 2;
+            moveSlides(k);
+          }, 20);
+        } else {
+          isFirst = false;
           updateCarouselIntemData();
         }
       }
@@ -178,9 +181,9 @@ export const Head: React.SFC<HeadProps> = (props) => {
       delay={CarouselItemData.animationDelay}
       marginLeft={CarouselItemData.marginLeft}>
         <HeadCarouselItemForwardAnchor
-        onClick={BackwardMovingHandler} />
+        onClick={ToTheRightMovingHandler} />
         <HeadCarouselItemBackwardAnchor
-        onClick={ForwardMovingHandler} />
+        onClick={ToTheLeftMovingHandler} />
   {
     CarouselItemData.slides.map((e, i) => {
       return (

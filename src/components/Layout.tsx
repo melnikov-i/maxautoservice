@@ -10,6 +10,7 @@ import HeadConnected from '@src/connected/HeadConnected.usage';
 
 import {
   LayoutWrapper,
+  LayoutTopWrapper,
   LayoutTop,
 
   LayoutTopLogo,
@@ -18,26 +19,34 @@ import {
   LayoutTopLogoDescription,
   LayoutTopPhone,
   LayoutTopPhoneNumber,
-
   LayoutHead,
-  
   LayoutContent,
-  LayoutProfit,
-  LayoutDescription,
-  LayoutTOSet,
-  LayoutPhotoGallery,
-  LayoutWarranty,
-  LayoutContacts,
-  LayoutCallToAction,
+
+  LayoutDescriptionText,
+  LayoutDesctiptionList,
+  LayoutDescriptionListItem,
+  LayoutDescriptionListImage,
+  LayoutDescriptionListItemText,
+  LayoutDescriptionListItemHeader,
+  LayoutDecriptionListItemSpan,
+
+  LayoutContactsWrapper,
+  LayoutContactsAddressWrapper,
+  LayoutContactsAddress,
+  LayoutContactsPhone,
+  LayoutContactsMapWrapper,
+
+  // LayoutTOSet,
+  // LayoutPhotoGallery,
+  // LayoutWarranty,
+  // LayoutCallToAction,
   
+  LayoutScreenWrapper,
   LayoutScreenHeader,
 
+  LayoutFooter,
+
   YELLOW_COLOR
-  
-  // LayoutScreenHeaderSpan,
-  // LayoutProfitList,
-  // LayoutProfitListItem,
-  // LayoutProfitListItemSpan,
 } from '@src/styled';
 
 const FontAwesomeEOT = require('@src/fonts/fontawesome-webfont.eot');
@@ -97,33 +106,31 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
 
   return (
     <LayoutWrapper>
-      <LayoutTop>
-        <LayoutTopLogo>
-          <LayoutTopLogoName>
-            <LayoutTopLogoNameSpan>
-              {PageData.logo.yellow}
-            </LayoutTopLogoNameSpan>
-            {PageData.logo.black}
-          </LayoutTopLogoName>
-          <LayoutTopLogoDescription>
-            {PageData.profitHeader}
-          </LayoutTopLogoDescription>
-        </LayoutTopLogo>
-        <LayoutTopPhone>
-          <LayoutTopPhoneNumber>
-            {PageData.phone}
-          </LayoutTopPhoneNumber>
-        </LayoutTopPhone>
-      </LayoutTop>
-
+      <LayoutTopWrapper>
+        <LayoutTop>
+          <LayoutTopLogo>
+            <LayoutTopLogoName>
+              <LayoutTopLogoNameSpan>
+                {PageData.logo.yellow}
+              </LayoutTopLogoNameSpan>
+              {PageData.logo.black}
+            </LayoutTopLogoName>
+            <LayoutTopLogoDescription>
+              {PageData.logo.header}
+            </LayoutTopLogoDescription>
+          </LayoutTopLogo>
+          <LayoutTopPhone>
+            <LayoutTopPhoneNumber>
+              {PageData.phone}
+            </LayoutTopPhoneNumber>
+          </LayoutTopPhone>
+        </LayoutTop>
+      </LayoutTopWrapper>
       <LayoutHead>
-        <HeadConnected />        
-      </LayoutHead>
-
-
-      
+        <HeadConnected />
+      </LayoutHead>      
       <LayoutContent>
-        <LayoutProfit>
+        <LayoutScreenWrapper>
           <LayoutScreenHeader>
             {PageData.profitHeader}
           </LayoutScreenHeader>
@@ -134,121 +141,83 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         )
       })
     }
-        </LayoutProfit>
-        <LayoutDescription>
-          {'Описание продукта (или услуги)'}
-        </LayoutDescription>
-        <LayoutTOSet>
-          {'Комплекты ТО'}
-        </LayoutTOSet>
-        <LayoutPhotoGallery>
-          {'Галерея выполненных работ'}
-        </LayoutPhotoGallery>
-        <LayoutWarranty>
-          {'Гарантия'}
-        </LayoutWarranty>
-        <LayoutContacts>
-          {'Контакты и телефоны'}
-        </LayoutContacts>
-        <LayoutCallToAction>
-          {'Призыв к действию'}
-        </LayoutCallToAction>
+        </LayoutScreenWrapper>
+        <LayoutScreenWrapper>
+          <LayoutScreenHeader>
+            { PageData.description.header }
+          </LayoutScreenHeader>
+          <LayoutDescriptionText>
+            { PageData.description.text[0] }
+          </LayoutDescriptionText>
+          <LayoutDescriptionText>
+            { PageData.description.text[1] }
+          </LayoutDescriptionText>
+          <LayoutDesctiptionList>
+      {
+        PageData.description.list.map((e, i) => {
+          return (
+            <LayoutDescriptionListItem key={i}>
+              <LayoutDescriptionListImage
+              src={e.image} />
+              <LayoutDescriptionListItemText>
+                <LayoutDescriptionListItemHeader>
+                  {e.header}
+                </LayoutDescriptionListItemHeader>
+                <LayoutDecriptionListItemSpan>
+                  {e.text}
+                </LayoutDecriptionListItemSpan>                
+              </LayoutDescriptionListItemText>
+            </LayoutDescriptionListItem>
+
+          );
+        })
+      }
+          </LayoutDesctiptionList>
+        </LayoutScreenWrapper>
+        <LayoutScreenWrapper>
+          <LayoutScreenHeader>
+            {PageData.address.header}
+          </LayoutScreenHeader>
+          <LayoutContactsWrapper>
+            <LayoutContactsAddressWrapper>
+              
+              <LayoutContactsAddress
+              icon={PageData.address.addressIcon}>
+                {PageData.address.address}
+              </LayoutContactsAddress>
+              
+              <LayoutContactsAddress
+              icon={PageData.address.scheduleIcon}>
+                {PageData.address.schedule}
+              </LayoutContactsAddress>
+              
+              <LayoutContactsPhone
+              icon={PageData.address.phoneIcon}>
+                {PageData.phone}
+              </LayoutContactsPhone>
+            
+            </LayoutContactsAddressWrapper>
+            <LayoutContactsMapWrapper>
+              <iframe
+              src={'https://yandex.ru/map-widget/v1/?um=constructor%3Afa6fe2de53ce9d5d02bcd8db89a5e327949081ee92e65c8f9605bea41014f701&amp;source=constructor'} 
+              width={'100%'}
+              height={'425'}></iframe>
+            </LayoutContactsMapWrapper>            
+          </LayoutContactsWrapper>
+        </LayoutScreenWrapper>
+        <LayoutFooter>
+          
+        </LayoutFooter>
       </LayoutContent>
     </LayoutWrapper>
   );
-          // <LayoutProfitItem>
-          //   <LayoutProfitItemIcon />
-          //   <LayoutProfitItemHeader>
-          //     {'Профессиональный подход'}
-          //   </LayoutProfitItemHeader>
-          //   <LayoutProfitItemText>
-          //     {'Обслуживание автомобилей наших клиентов выполняется профессионалами высокого уровня. За плечами большинства наших специалистов многолетний опыт работы в этой области, в том числе и на СТО официального дилера.'}
-          //   </LayoutProfitItemText>
-          // </LayoutProfitItem>
-          // <LayoutProfitItem>
-          //   <LayoutProfitItemIcon />
-          // </LayoutProfitItem>
-          // <LayoutProfitItem>
-          //   <LayoutProfitItemIcon />
-          // </LayoutProfitItem>
-          // <LayoutProfitItem>
-          //   <LayoutProfitItemIcon />
-          // </LayoutProfitItem>
-          // <LayoutProfitItem>
-          //   <LayoutProfitItemIcon />
-          // </LayoutProfitItem>
-          // <LayoutProfitItem>
-          //   <LayoutProfitItemIcon />
-          // </LayoutProfitItem>
-}
-          //       {'Профессиональный подход:'}
-          //       {'Разумная цена:'}
-          //       {'Все в наличии:'}
-          //       {'Точная диагностика:'}
-          //       {'Приемлемые сроки:'}
-          //       {'Прозрачно:'}
-          //       {'Гарантия качества:'}
-
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-          //       {'Обслуживание автомобилей наших клиентов выполняется профессионалами высокого уровня. За плечами большинства наших специалистов многолетний опыт работы в этой области, в том числе и на СТО официального дилера.'}
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-          //       {'Стоимость выполненных работ и запасных частей значительно ниже, чем у официалов.'}
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-                
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-                
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-                
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-                
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
-          // <LayoutProfitList>
-          //   <LayoutProfitListItem>
-          //     <LayoutProfitListItemSpan>
-          //     </LayoutProfitListItemSpan>
-          //     <LayoutProfitListItemSpan>
-                
-          //     </LayoutProfitListItemSpan>
-          //   </LayoutProfitListItem>
-          // </LayoutProfitList>
+};
+        // <LayoutTOSet>
+        //   {'Комплекты ТО'}
+        // </LayoutTOSet>
+        // <LayoutPhotoGallery>
+        //   {'Галерея выполненных работ'}
+        // </LayoutPhotoGallery>
+        // <LayoutWarranty>
+        //   {'Гарантия'}
+        // </LayoutWarranty>
