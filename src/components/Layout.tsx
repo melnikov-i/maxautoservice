@@ -7,6 +7,7 @@ import {
 
 import ProfitConnected from '@src/connected/ProfitConnected.usage';
 import HeadConnected from '@src/connected/HeadConnected.usage';
+import TOCalculatorConnected from '@src/connected/TOCalculatorConnected.usage';
 
 import {
   LayoutWrapper,
@@ -145,39 +146,41 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
       }     
           </LayoutItemWrapper>
         </LayoutScreenWrapper>
-          <LayoutItemWrapper>
-            <LayoutScreenHeader>
-              { PageData.description.header }
-            </LayoutScreenHeader>
-            <LayoutDescriptionText>
-              { PageData.description.text[0] }
-            </LayoutDescriptionText>
-            <LayoutDescriptionText>
-              { PageData.description.text[1] }
-            </LayoutDescriptionText>
-            <LayoutDesctiptionList>
-        {
-          PageData.description.list.map((e, i) => {
-            return (
-              <LayoutDescriptionListItem key={i}>
-                <LayoutDescriptionListImage
-                src={e.image} />
-                <LayoutDescriptionListItemText>
-                  <LayoutDescriptionListItemHeader>
-                    {e.header}
-                  </LayoutDescriptionListItemHeader>
-                  <LayoutDecriptionListItemSpan>
-                    {e.text}
-                  </LayoutDecriptionListItemSpan>                
-                </LayoutDescriptionListItemText>
-              </LayoutDescriptionListItem>
+        <LayoutItemWrapper>
+          <LayoutScreenHeader>
+            { PageData.description.header }
+          </LayoutScreenHeader>
+          <LayoutDescriptionText>
+            { PageData.description.text[0] }
+          </LayoutDescriptionText>
+          <LayoutDescriptionText>
+            { PageData.description.text[1] }
+          </LayoutDescriptionText>
+          <LayoutDesctiptionList>
+      {
+        PageData.description.list.map((e, i) => {
+          return (
+            <LayoutDescriptionListItem key={i}>
+              <LayoutDescriptionListImage
+              src={e.image} />
+              <LayoutDescriptionListItemText>
+                <LayoutDescriptionListItemHeader>
+                  {e.header}
+                </LayoutDescriptionListItemHeader>
+                <LayoutDecriptionListItemSpan>
+                  {e.text}
+                </LayoutDecriptionListItemSpan>                
+              </LayoutDescriptionListItemText>
+            </LayoutDescriptionListItem>
 
-            );
-          })
-        }
-            </LayoutDesctiptionList>
-          </LayoutItemWrapper>
-
+          );
+        })
+      }
+          </LayoutDesctiptionList>
+        </LayoutItemWrapper>
+        <LayoutItemWrapper>
+          <TOCalculatorConnected />
+        </LayoutItemWrapper>
         <LayoutScreenWrapper>
           <LayoutItemWrapper>
             <LayoutScreenHeader>
