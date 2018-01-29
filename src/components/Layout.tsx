@@ -212,6 +212,8 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
     </LayoutWrapper>
   );
 };
+                // <span className={'ymaps-geolink'}>
+                // </span>
         // <LayoutTOSet>
         //   {'Комплекты ТО'}
         // </LayoutTOSet>
@@ -221,3 +223,4 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         // <LayoutWarranty>
         //   {'Гарантия'}
         // </LayoutWarranty>
+

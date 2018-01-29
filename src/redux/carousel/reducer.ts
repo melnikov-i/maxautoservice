@@ -21,7 +21,7 @@ const CarouselItemDataInitialState: CarouselItemDataInterface = {
   animationDelay: '5',
   marginLeft: '-100',
   direction: true,//false,
-  delay: '2000',
+  delay: '8000',
   isFirst: true,
   slides: [
     {

@@ -9,7 +9,11 @@ import {
   PROFIT_ICON_FONT_SIZE,
   YELLOW_COLOR,
   BLACK_COLOR,
-  GLOBAL_INDENT
+  GLOBAL_INDENT,
+  MIDDLE_SCREEN_MIN,
+  MIDDLE_SCREEN_MAX,
+  SMALL_SCREEN_MAX,
+  SMALL_SCREEN_MIN,
 } from '@src/styled';
 
 export const ProfitItem = styled.div`
@@ -17,6 +21,16 @@ export const ProfitItem = styled.div`
   margin: ${GLOBAL_INDENT};
   display: inline-block;
   vertical-align: top;
+  @media screen 
+    and (min-width: ${ MIDDLE_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      width: 46.8%;
+    }
+  @media screen
+    and (min-width: ${ SMALL_SCREEN_MIN })
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      width: 96.8%;
+    }
 `;
 
 export const ProfitItemIcon = styled.div`

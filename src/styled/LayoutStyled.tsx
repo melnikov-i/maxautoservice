@@ -5,9 +5,12 @@ import {
   YELLOW_COLOR,
   MIDDLE_GRAY_COLOR,
   DARK_GRAY_COLOR,
-  GLOBAL_INDENT
-  // PROFIT_ICON_SIZE,
-  // PROFIT_ICON_FONT_SIZE
+  GLOBAL_INDENT,
+  MIDDLE_SCREEN_MAX,
+  TOP_HEIGHT_BIG_SCREEN,
+  TOP_HEIGHT_MIDDLE_SCREEN,
+  SMALL_SCREEN_MIN,
+  SMALL_SCREEN_MAX
 } from '@src/styled';
 
 const Logo = require('@src/images/Logo');
@@ -16,7 +19,12 @@ export const LayoutWrapper = styled.div`
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: ${ TOP_HEIGHT_BIG_SCREEN };
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      padding-top: ${ TOP_HEIGHT_MIDDLE_SCREEN };
+    }
 `;
 
 export const LayoutTopWrapper = styled.div`
@@ -26,23 +34,38 @@ export const LayoutTopWrapper = styled.div`
   top: 0;
   left: 50%;
   z-index: 2;
+    @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ SMALL_SCREEN_MIN }) {
+      position: relative;
+    }
 `;
 
 export const LayoutTop = styled.div`
   box-sizing: border-box;
   background-color: #fff;
   width: 100%;
-  height: 80px;
+  height: ${ TOP_HEIGHT_BIG_SCREEN };
   padding: 10px 20px;
   margin-left: -50%;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      height: ${ TOP_HEIGHT_MIDDLE_SCREEN };
+    }
 `;
 
 export const LayoutTopLogo = styled.div`
-  width: 50%;
+  width: 280px;
   height: 60px;
   display: inline-block;
   vertical-align: top;
-  
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      display: block;
+      margin: 0 auto;
+    }
 `;
 
 export const LayoutTopLogoName = styled.p`
@@ -75,7 +98,19 @@ export const LayoutTopLogoDescription = styled.p`
   margin: -20px 0 0 70px;
 `;
 
-export const LayoutTopPhone = LayoutTopLogo.extend``;
+export const LayoutTopPhone = styled.div`
+  width: calc(100% - 280px);
+  height: 60px;
+  display: inline-block;
+  vertical-align: top;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      width: 205px;
+      display: block;
+      margin: 0 auto;
+    }
+`;
 
 export const LayoutTopPhoneNumber = styled.p`
   font-size: 22px;
@@ -129,12 +164,12 @@ export const LayoutDescriptionText = styled.p`
   margin: ${GLOBAL_INDENT};
 `;
 
-export const LayoutDesctiptionList = styled.ul`
+export const LayoutDesctiptionList = styled.div`
   width: 96.8%;
   margin: ${GLOBAL_INDENT};
 `;
 
-export const LayoutDescriptionListItem = styled.li`
+export const LayoutDescriptionListItem = styled.div`
   list-style-type: none;
   list-style-position: inside;
   padding-bottom: 20px;
@@ -145,6 +180,13 @@ export const LayoutDescriptionListImage = styled.img`
   margin-right: ${ GLOBAL_INDENT };
   display: inline-block;
   vertical-align: top;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
 `;
 
 export const LayoutDescriptionListItemText = styled.div`
@@ -152,9 +194,15 @@ export const LayoutDescriptionListItemText = styled.div`
   vertical-align: top;
   margin-left: ${ GLOBAL_INDENT };
   width: 65.06%;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      display: block;
+      width: 100%;
+    }
 `;
 
-export const LayoutDecriptionListItemSpan = styled.span`
+export const LayoutDecriptionListItemSpan = styled.p`
   font-size: 16px;
   line-height: 22px;
 `;
@@ -179,17 +227,31 @@ export const LayoutContactsWrapper = styled.div`
 `;
 
 export const LayoutContactsAddressWrapper = styled.div`
-  width: 31.73%;
+  width: 45.73%;
   display: inline-block;
   vertical-align: top;
   margin-right: ${ GLOBAL_INDENT };
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      width: 100%;
+      display: block;
+      margin: 0;
+    }
 `;
 
 export const LayoutContactsMapWrapper = styled.div`
-  width: 65.06%;
+  width: 50.06%;
   margin-left: ${ GLOBAL_INDENT };
   display: inline-block;
   vertical-align: top;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      width: 100%;
+      display: block;
+      margin: 20px 0 0;
+    }
 `;
 
 export const LayoutContactsAddress = styled.p`

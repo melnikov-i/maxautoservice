@@ -121,10 +121,10 @@ export const Head: React.SFC<HeadProps> = (props) => {
     if ( element !== null ) {
       if ( i === 100 ) element.style.marginLeft = '-100%';
       if ( CarouselItemData.direction ) {
-        if ( i > -2 ) {
+        if ( i < 202 ) {
           setTimeout(() => {
             element.style.marginLeft = '-' + String(i) + '%';
-            const k: number = i - 2;
+            const k: number = i + 2;
             moveSlides(k);
           }, 20);
         } else {
@@ -132,10 +132,10 @@ export const Head: React.SFC<HeadProps> = (props) => {
           updateCarouselIntemData();
         }
       } else {
-        if ( i < 202 ) {
+        if ( i > -2 ) {
           setTimeout(() => {
             element.style.marginLeft = '-' + String(i) + '%';
-            const k: number = i + 2;
+            const k: number = i - 2;
             moveSlides(k);
           }, 20);
         } else {
