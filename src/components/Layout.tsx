@@ -42,6 +42,7 @@ import {
   // LayoutCallToAction,
   
   LayoutScreenWrapper,
+  LayoutItemWrapper,
   LayoutScreenHeader,
 
   LayoutFooter,
@@ -131,79 +132,80 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
       </LayoutHead>      
       <LayoutContent>
         <LayoutScreenWrapper>
-          <LayoutScreenHeader>
-            {PageData.profitHeader}
-          </LayoutScreenHeader>
-    {
-      PageData.profit.map((e, i) => {
-        return (
-          <ProfitConnected key={i} profit={e} />
-        )
-      })
-    }
-        </LayoutScreenWrapper>
-        <LayoutScreenWrapper>
-          <LayoutScreenHeader>
-            { PageData.description.header }
-          </LayoutScreenHeader>
-          <LayoutDescriptionText>
-            { PageData.description.text[0] }
-          </LayoutDescriptionText>
-          <LayoutDescriptionText>
-            { PageData.description.text[1] }
-          </LayoutDescriptionText>
-          <LayoutDesctiptionList>
+          <LayoutItemWrapper>
+            <LayoutScreenHeader>
+              {PageData.profitHeader}
+            </LayoutScreenHeader>
       {
-        PageData.description.list.map((e, i) => {
+        PageData.profit.map((e, i) => {
           return (
-            <LayoutDescriptionListItem key={i}>
-              <LayoutDescriptionListImage
-              src={e.image} />
-              <LayoutDescriptionListItemText>
-                <LayoutDescriptionListItemHeader>
-                  {e.header}
-                </LayoutDescriptionListItemHeader>
-                <LayoutDecriptionListItemSpan>
-                  {e.text}
-                </LayoutDecriptionListItemSpan>                
-              </LayoutDescriptionListItemText>
-            </LayoutDescriptionListItem>
-
-          );
+            <ProfitConnected key={i} profit={e} />
+          )
         })
-      }
-          </LayoutDesctiptionList>
+      }     
+          </LayoutItemWrapper>
         </LayoutScreenWrapper>
+          <LayoutItemWrapper>
+            <LayoutScreenHeader>
+              { PageData.description.header }
+            </LayoutScreenHeader>
+            <LayoutDescriptionText>
+              { PageData.description.text[0] }
+            </LayoutDescriptionText>
+            <LayoutDescriptionText>
+              { PageData.description.text[1] }
+            </LayoutDescriptionText>
+            <LayoutDesctiptionList>
+        {
+          PageData.description.list.map((e, i) => {
+            return (
+              <LayoutDescriptionListItem key={i}>
+                <LayoutDescriptionListImage
+                src={e.image} />
+                <LayoutDescriptionListItemText>
+                  <LayoutDescriptionListItemHeader>
+                    {e.header}
+                  </LayoutDescriptionListItemHeader>
+                  <LayoutDecriptionListItemSpan>
+                    {e.text}
+                  </LayoutDecriptionListItemSpan>                
+                </LayoutDescriptionListItemText>
+              </LayoutDescriptionListItem>
+
+            );
+          })
+        }
+            </LayoutDesctiptionList>
+          </LayoutItemWrapper>
+
         <LayoutScreenWrapper>
-          <LayoutScreenHeader>
-            {PageData.address.header}
-          </LayoutScreenHeader>
-          <LayoutContactsWrapper>
-            <LayoutContactsAddressWrapper>
-              
-              <LayoutContactsAddress
-              icon={PageData.address.addressIcon}>
-                {PageData.address.address}
-              </LayoutContactsAddress>
-              
-              <LayoutContactsAddress
-              icon={PageData.address.scheduleIcon}>
-                {PageData.address.schedule}
-              </LayoutContactsAddress>
-              
-              <LayoutContactsPhone
-              icon={PageData.address.phoneIcon}>
-                {PageData.phone}
-              </LayoutContactsPhone>
-            
-            </LayoutContactsAddressWrapper>
-            <LayoutContactsMapWrapper>
-              <iframe
-              src={'https://yandex.ru/map-widget/v1/?um=constructor%3Afa6fe2de53ce9d5d02bcd8db89a5e327949081ee92e65c8f9605bea41014f701&amp;source=constructor'} 
-              width={'100%'}
-              height={'425'}></iframe>
-            </LayoutContactsMapWrapper>            
-          </LayoutContactsWrapper>
+          <LayoutItemWrapper>
+            <LayoutScreenHeader>
+              {PageData.address.header}
+            </LayoutScreenHeader>
+            <LayoutContactsWrapper>
+              <LayoutContactsAddressWrapper>                
+                <LayoutContactsAddress
+                icon={PageData.address.addressIcon}>
+                  {PageData.address.address}
+                </LayoutContactsAddress>                
+                <LayoutContactsAddress
+                icon={PageData.address.scheduleIcon}>
+                  {PageData.address.schedule}
+                </LayoutContactsAddress>                
+                <LayoutContactsPhone
+                icon={PageData.address.phoneIcon}>
+                  {PageData.phone}
+                </LayoutContactsPhone>              
+              </LayoutContactsAddressWrapper>
+              <LayoutContactsMapWrapper>
+                <iframe
+                src={'https://yandex.ru/map-widget/v1/?um=constructor%3Afa6fe2de53ce9d5d02bcd8db89a5e327949081ee92e65c8f9605bea41014f701&amp;source=constructor'} 
+                width={'100%'}
+                height={'425'}></iframe>
+              </LayoutContactsMapWrapper>            
+            </LayoutContactsWrapper>
+          </LayoutItemWrapper>
         </LayoutScreenWrapper>
         <LayoutFooter>
           

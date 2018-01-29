@@ -10,6 +10,8 @@ import {
   DARK_GRAY_COLOR,
   YELLOW_COLOR,
   HEAD_HEADER_BG_COLOR,
+  CAROUSEL_WIDTH_BIG_MIN,
+  BIG_SCREEN_HEAD_MAX_HEIGHT,
 } from '@src/styled';
 
 // export const HeadWrapper = styled.div`
@@ -29,7 +31,13 @@ export const HeadCarousel = styled.div`
       props.marginLeft
     )
   }%;
-  height: ${BIG_SCREEN_HEAD_MIN_HEIGHT};
+  height: ${ BIG_SCREEN_HEAD_MIN_HEIGHT };
+  @media screen
+    and (min-width: ${ CAROUSEL_WIDTH_BIG_MIN }) {
+      height: ${BIG_SCREEN_HEAD_MAX_HEIGHT};
+    }
+
+
 `;
 
 export const HeadCarouselItem = styled.div`
@@ -50,6 +58,10 @@ export const HeadCarouselItem = styled.div`
   background-position: center center;
   background-size: cover;
   position: relative;
+  @media screen
+    and (min-width: ${ CAROUSEL_WIDTH_BIG_MIN }) {
+      min-height: ${BIG_SCREEN_HEAD_MAX_HEIGHT};
+    }
 `;
 
 export const HeadCarouselItemBackwardAnchor = styled.a`

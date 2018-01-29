@@ -7,8 +7,8 @@ import {
 import {
   PROFIT_ICON_SIZE,
   PROFIT_ICON_FONT_SIZE,
+  DARK_GRAY_COLOR,
   YELLOW_COLOR,
-  BLACK_COLOR,
   GLOBAL_INDENT,
   MIDDLE_SCREEN_MIN,
   MIDDLE_SCREEN_MAX,
@@ -42,8 +42,8 @@ export const ProfitItemIcon = styled.div`
     width: ${PROFIT_ICON_SIZE};
     height: ${PROFIT_ICON_SIZE};
     border-radius: 50%;
-    color: ${BLACK_COLOR};
-    background-color: ${YELLOW_COLOR};
+    color: ${YELLOW_COLOR};
+    background-color: ${DARK_GRAY_COLOR};
     font-size: ${PROFIT_ICON_FONT_SIZE};
     font-family: 'FontAwesome';
     font-weight: normal;

@@ -5,25 +5,26 @@ import {
   YELLOW_COLOR,
   MIDDLE_GRAY_COLOR,
   DARK_GRAY_COLOR,
+  BLACK_COLOR,
   GLOBAL_INDENT,
   MIDDLE_SCREEN_MAX,
   TOP_HEIGHT_BIG_SCREEN,
   TOP_HEIGHT_MIDDLE_SCREEN,
   SMALL_SCREEN_MIN,
-  SMALL_SCREEN_MAX
+  SMALL_SCREEN_MAX,
+  LAYOUT_SCREEN_WRAPPER_BG_COLOR,
 } from '@src/styled';
 
 const Logo = require('@src/images/Logo');
 
 export const LayoutWrapper = styled.div`
   width: 100%;
-  max-width: 1500px;
   margin: 0 auto;
   padding-top: ${ TOP_HEIGHT_BIG_SCREEN };
   @media screen 
     and (min-width: ${ SMALL_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
-      padding-top: ${ TOP_HEIGHT_MIDDLE_SCREEN };
+      padding-top: 0;
     }
 `;
 
@@ -34,9 +35,9 @@ export const LayoutTopWrapper = styled.div`
   top: 0;
   left: 50%;
   z-index: 2;
-    @media screen 
+  @media screen 
     and (min-width: ${ SMALL_SCREEN_MIN }) 
-    and (max-width: ${ SMALL_SCREEN_MIN }) {
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
       position: relative;
     }
 `;
@@ -48,10 +49,24 @@ export const LayoutTop = styled.div`
   height: ${ TOP_HEIGHT_BIG_SCREEN };
   padding: 10px 20px;
   margin-left: -50%;
+  &::before {
+    content: "";
+    display: block;
+    width: 400%;
+    height: ${ TOP_HEIGHT_BIG_SCREEN };
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: -1000px;
+    z-index: -1;
+  }
   @media screen 
     and (min-width: ${ SMALL_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
       height: ${ TOP_HEIGHT_MIDDLE_SCREEN };
+      &::before {
+        display: none;
+      }
     }
 `;
 
@@ -134,23 +149,31 @@ export const LayoutTopPhoneNumber = styled.p`
 export const LayoutHead = styled.div`
   box-sizing: border-box;
   overflow: hidden;
+  max-width: 1500px;
   width: 100%;
   position: relative;
+  margin: 0 auto;
 `;
 
 
 
 
 export const LayoutContent = styled.div`
-  max-width: ${LAYOUT_BIG_MAX_WIDTH};
   width: 100%;
   margin: 0 auto;
 `;
 
 export const LayoutScreenWrapper = styled.div`
-  box-sizing: border-box;
   width: 100%;
+  background-color: ${ LAYOUT_SCREEN_WRAPPER_BG_COLOR };
+`;
+
+export const LayoutItemWrapper = styled.div`
+  max-width: ${LAYOUT_BIG_MAX_WIDTH};
+  width: 100%;
+  box-sizing: border-box;
   padding: 40px 0;
+  margin: 0 auto;
 `;
 
 export const LayoutScreenHeader = styled.h1`
@@ -211,6 +234,7 @@ export const LayoutDescriptionListItemHeader = styled.h4`
   font-size: 16px;
   line-height: 22px;
   display: inline-block;
+  padding: 5px;
   vertical-align: top;
   font-weight: 700;
   background-color: ${ YELLOW_COLOR };
@@ -270,7 +294,7 @@ export const LayoutContactsAddress = styled.p`
     font-size: 22px;
     margin-right: 5px;
     text-align: center;
-    color: ${YELLOW_COLOR};
+    color: ${ BLACK_COLOR };
   }
 `;
 
