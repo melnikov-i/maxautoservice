@@ -20,7 +20,7 @@ const slide2 = require('@src/images/slide_2');
 const CarouselItemDataInitialState: CarouselItemDataInterface = {
   animationDelay: '5',
   marginLeft: '-100',
-  direction: true,//false,
+  direction: true,
   delay: '8000',
   isFirst: true,
   slides: [

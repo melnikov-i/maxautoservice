@@ -16,6 +16,7 @@ export interface PageDataInterface {
   description: {
     header: string,
     text: string[],
+    inviteToCall: string,
     list: {
       header: string,
       text: string,
@@ -60,9 +61,6 @@ interface HeadCarouselItemInterface {
 export type CarouselItemStyledType =
   HeadCarouselItemInterface & React.HTMLProps<HTMLDivElement>;
 
-
-
-
 interface HeadCarouselInterface {
   carouselWidth: number,
   delay: string,
@@ -72,14 +70,5 @@ interface HeadCarouselInterface {
 export type CarouselStyledType =
   HeadCarouselInterface & React.HTMLProps<HTMLDivElement>;
 
-
-
-
-
-
-
-
 export type ProfitIconStyleType =
   CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;
-
-

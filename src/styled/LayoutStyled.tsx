@@ -31,14 +31,14 @@ export const LayoutWrapper = styled.div`
 export const LayoutTopWrapper = styled.div`
   max-width: ${LAYOUT_BIG_MAX_WIDTH};
   width: 100%;
-  position: fixed;
+  position: fixed;  
   top: 0;
   left: 50%;
   z-index: 2;
   @media screen 
     and (min-width: ${ SMALL_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
-      position: relative;
+      position: unset;
     }
 `;
 
@@ -64,6 +64,7 @@ export const LayoutTop = styled.div`
     and (min-width: ${ SMALL_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
       height: ${ TOP_HEIGHT_MIDDLE_SCREEN };
+      margin-left: 0;
       &::before {
         display: none;
       }
@@ -144,8 +145,6 @@ export const LayoutTopPhoneNumber = styled.p`
   }
 `;
 
-
-
 export const LayoutHead = styled.div`
   box-sizing: border-box;
   overflow: hidden;
@@ -153,10 +152,12 @@ export const LayoutHead = styled.div`
   width: 100%;
   position: relative;
   margin: 0 auto;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN })
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      display: none;
+    }
 `;
-
-
-
 
 export const LayoutContent = styled.div`
   width: 100%;
@@ -241,7 +242,17 @@ export const LayoutDescriptionListItemHeader = styled.h4`
   color: #000;
 `;
 
+export const LayoutInviteToCall = styled.p`
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+`;
 
+export const LayoutInviteToCallSpan = styled.span`
+  font-size: 32px;
+  padding: 5px;
+  background-color: ${ YELLOW_COLOR };
+`;
 
 
 

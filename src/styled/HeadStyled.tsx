@@ -1,4 +1,4 @@
-import styled/*, { keyframes }*/ from 'styled-components';
+import styled from 'styled-components';
 
 import {
   CarouselItemStyledType,
@@ -13,12 +13,6 @@ import {
   CAROUSEL_WIDTH_BIG_MIN,
   BIG_SCREEN_HEAD_MAX_HEIGHT,
 } from '@src/styled';
-
-// export const HeadWrapper = styled.div`
-//   box-sizing: border-box;
-//   overflow: hidden;
-//   width: 100%;
-// `;
 
 export const HeadCarousel = styled.div`
   width: ${
@@ -36,8 +30,6 @@ export const HeadCarousel = styled.div`
     and (min-width: ${ CAROUSEL_WIDTH_BIG_MIN }) {
       height: ${BIG_SCREEN_HEAD_MAX_HEIGHT};
     }
-
-
 `;
 
 export const HeadCarouselItem = styled.div`

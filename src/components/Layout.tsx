@@ -7,13 +7,11 @@ import {
 
 import ProfitConnected from '@src/connected/ProfitConnected.usage';
 import HeadConnected from '@src/connected/HeadConnected.usage';
-import TOCalculatorConnected from '@src/connected/TOCalculatorConnected.usage';
 
 import {
   LayoutWrapper,
   LayoutTopWrapper,
   LayoutTop,
-
   LayoutTopLogo,
   LayoutTopLogoName,
   LayoutTopLogoNameSpan,
@@ -22,7 +20,6 @@ import {
   LayoutTopPhoneNumber,
   LayoutHead,
   LayoutContent,
-
   LayoutDescriptionText,
   LayoutDesctiptionList,
   LayoutDescriptionListItem,
@@ -30,24 +27,17 @@ import {
   LayoutDescriptionListItemText,
   LayoutDescriptionListItemHeader,
   LayoutDecriptionListItemSpan,
-
+  LayoutInviteToCall,
+  LayoutInviteToCallSpan,
   LayoutContactsWrapper,
   LayoutContactsAddressWrapper,
   LayoutContactsAddress,
   LayoutContactsPhone,
   LayoutContactsMapWrapper,
-
-  // LayoutTOSet,
-  // LayoutPhotoGallery,
-  // LayoutWarranty,
-  // LayoutCallToAction,
-  
   LayoutScreenWrapper,
   LayoutItemWrapper,
   LayoutScreenHeader,
-
   LayoutFooter,
-
   YELLOW_COLOR
 } from '@src/styled';
 
@@ -103,9 +93,6 @@ interface LayoutProps {
 
 export const Layout: React.SFC<LayoutProps> = (props) => {
   const { PageData } = props;
-  // console.log(PageData);
-
-
   return (
     <LayoutWrapper>
       <LayoutTopWrapper>
@@ -123,7 +110,7 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           </LayoutTopLogo>
           <LayoutTopPhone>
             <LayoutTopPhoneNumber>
-              {PageData.phone}
+              { PageData.phone }
             </LayoutTopPhoneNumber>
           </LayoutTopPhone>
         </LayoutTop>
@@ -150,12 +137,15 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
           <LayoutScreenHeader>
             { PageData.description.header }
           </LayoutScreenHeader>
-          <LayoutDescriptionText>
-            { PageData.description.text[0] }
-          </LayoutDescriptionText>
-          <LayoutDescriptionText>
-            { PageData.description.text[1] }
-          </LayoutDescriptionText>
+      {
+        PageData.description.text.map((e, i) => {
+          return (
+            <LayoutDescriptionText key={i}>
+              {e}
+            </LayoutDescriptionText>
+          );
+        })
+      }
           <LayoutDesctiptionList>
       {
         PageData.description.list.map((e, i) => {
@@ -177,9 +167,14 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         })
       }
           </LayoutDesctiptionList>
-        </LayoutItemWrapper>
-        <LayoutItemWrapper>
-          <TOCalculatorConnected />
+          <LayoutInviteToCall>
+            { PageData.description.inviteToCall }
+          </LayoutInviteToCall>
+          <LayoutInviteToCall>
+            <LayoutInviteToCallSpan>
+              { PageData.phone }              
+            </LayoutInviteToCallSpan>
+          </LayoutInviteToCall>
         </LayoutItemWrapper>
         <LayoutScreenWrapper>
           <LayoutItemWrapper>
@@ -217,15 +212,3 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
     </LayoutWrapper>
   );
 };
-                // <span className={'ymaps-geolink'}>
-                // </span>
-        // <LayoutTOSet>
-        //   {'Комплекты ТО'}
-        // </LayoutTOSet>
-        // <LayoutPhotoGallery>
-        //   {'Галерея выполненных работ'}
-        // </LayoutPhotoGallery>
-        // <LayoutWarranty>
-        //   {'Гарантия'}
-        // </LayoutWarranty>
-
