@@ -7,9 +7,11 @@ import {
   DARK_GRAY_COLOR,
   BLACK_COLOR,
   GLOBAL_INDENT,
+  MIDDLE_SCREEN_MIN,
   MIDDLE_SCREEN_MAX,
   TOP_HEIGHT_BIG_SCREEN,
   TOP_HEIGHT_MIDDLE_SCREEN,
+  TOP_HEIGHT_SMALL_SCREEN,
   SMALL_SCREEN_MIN,
   SMALL_SCREEN_MAX,
   LAYOUT_SCREEN_WRAPPER_BG_COLOR,
@@ -61,9 +63,18 @@ export const LayoutTop = styled.div`
     z-index: -1;
   }
   @media screen 
-    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (min-width: ${ MIDDLE_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
       height: ${ TOP_HEIGHT_MIDDLE_SCREEN };
+      margin-left: 0;
+      &::before {
+        display: none;
+      }
+    }
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      height: ${ TOP_HEIGHT_SMALL_SCREEN };
       margin-left: 0;
       &::before {
         display: none;
@@ -114,26 +125,72 @@ export const LayoutTopLogoDescription = styled.p`
   margin: -20px 0 0 70px;
 `;
 
-export const LayoutTopPhone = styled.div`
+export const LayoutTopMiddle = styled.div`
   width: calc(100% - 280px);
   height: 60px;
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  padding-left: 5%;
+  box-sizing: border-box;
   @media screen 
     and (min-width: ${ SMALL_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
-      width: 205px;
+      width: 400px;
       display: block;
+      margin: 0 auto;
+      padding: 0;
+    }
+`;
+
+export const LayoutTopLinksWrapper = styled.div`
+  @media screen 
+    and (min-width: ${ MIDDLE_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      display: inline-block;
+      vertical-align: top;
+    }
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      display: block;
+      width: 150px;
       margin: 0 auto;
     }
 `;
 
-export const LayoutTopPhoneNumber = styled.p`
+export const LayoutTopLink = styled.a`
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  &::before {
+    content: "\\${ (props: {icon: string}) => (props.icon)}";
+    display: block;
+    font-family: 'FontAwesome';
+    transform: ${ (props: {icon: string}) => (
+        ( props.icon === 'f25b' )
+        ? 'rotateY(180deg)'
+        : 'none'
+      )
+    };
+    font-size: 40px;
+    width: 50px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    color: ${ DARK_GRAY_COLOR };
+  }
+`;
+
+export const LayoutTopPhoneNumber = styled.span`
   font-size: 22px;
   font-weight: normal;
   height: 60px;
   line-height: 60px;
-  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   &::before {
     content: "\\f095";
     display: inline-block;
@@ -143,6 +200,21 @@ export const LayoutTopPhoneNumber = styled.p`
     margin-right: 5px;
     color: ${YELLOW_COLOR};
   }
+  @media screen 
+    and (min-width: ${ MIDDLE_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      display: inline-block;
+      vertical-align: top;
+      position: unset;
+    }
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ SMALL_SCREEN_MAX }) {
+      display: block;
+      width: 205px;
+      margin: 0 auto;
+      position: unset;
+    }
 `;
 
 export const LayoutHead = styled.div`

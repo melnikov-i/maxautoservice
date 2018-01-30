@@ -22,4 +22,5 @@ export const BIG_SCREEN_HEAD_MAX_HEIGHT: string = '625px';
 
 export const GLOBAL_INDENT: string = '1.6%';
 export const TOP_HEIGHT_BIG_SCREEN: string = '80px';
-export const TOP_HEIGHT_MIDDLE_SCREEN: string = '150px';
+export const TOP_HEIGHT_MIDDLE_SCREEN: string = '140px';
+export const TOP_HEIGHT_SMALL_SCREEN: string = '200px';
