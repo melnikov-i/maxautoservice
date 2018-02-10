@@ -110,7 +110,6 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
               {PageData.logo.header}
             </LayoutTopLogoDescription>
           </LayoutTopLogo>
-
           <LayoutTopMiddle>
             <LayoutTopLinksWrapper>
               <LayoutTopLink 
@@ -188,6 +187,9 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         })
       }
           </LayoutDesctiptionList>
+          <LayoutDecriptionListItemSpan>
+            {'aaa'}
+          </LayoutDecriptionListItemSpan>
           <LayoutInviteToCall>
             { PageData.description.inviteToCall }
           </LayoutInviteToCall>
