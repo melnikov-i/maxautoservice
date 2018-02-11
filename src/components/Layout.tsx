@@ -7,6 +7,7 @@ import {
 
 import ProfitConnected from '@src/connected/ProfitConnected.usage';
 import HeadConnected from '@src/connected/HeadConnected.usage';
+import PriceConnected from '@src/connected/PriceConnected.usage';
 
 import {
   LayoutWrapper,
@@ -187,9 +188,7 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         })
       }
           </LayoutDesctiptionList>
-          <LayoutDecriptionListItemSpan>
-            {'aaa'}
-          </LayoutDecriptionListItemSpan>
+          <PriceConnected />
           <LayoutInviteToCall>
             { PageData.description.inviteToCall }
           </LayoutInviteToCall>
