@@ -72,3 +72,8 @@ export type CarouselStyledType =
 
 export type ProfitIconStyleType =
   CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;
+
+export interface ModelCollectionItemInterface {
+  name: string,
+  value: string,
+}
