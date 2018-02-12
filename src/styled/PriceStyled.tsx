@@ -18,6 +18,7 @@ export const PriceModelItem = styled.div`
   overflow: hidden;
   white-space: nowrap;
   background-color: ${ YELLOW_COLOR };
+  position: relative;
   @media screen 
     and (min-width: ${ MIDDLE_SCREEN_MIN }) 
     and (max-width: ${ MIDDLE_SCREEN_MAX }) {
@@ -41,6 +42,13 @@ export const PriceModelItemAnchor = styled.a`
   text-align: left;
 `;
 
+export const PriceModelItemText = styled.p`
+  padding: 10px 10px 10px 62px;
+  font-size: 18px;
+  line-height: 32px;
+  height: 32px;
+`;
+
 export const PriceText = styled.p`
   font-size: 14px;
 `;
@@ -48,11 +56,14 @@ export const PriceText = styled.p`
 export const PriceModificationBackAnchor = styled.a`
   width: 52px;
   height: 52px;
-  margin: ${GLOBAL_INDENT};
   background-color: ${ YELLOW_COLOR };
   display: inline-block;
   vertical-align: top;
   cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 2px solid #fff;
   &::before {
     content: "\\f104";
     display: block;

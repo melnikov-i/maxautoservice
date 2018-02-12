@@ -1,42 +1,53 @@
 import * as React from 'react';
 
 import {
-  ModelCollectionItemInterface
+  ModelCollectionItemInterface,
+  CurrentModelModificationsCollectionInterface
 } from '@src/interfaces';
 
 import {
   PriceModelItem,
   PriceModelItemAnchor,
-  PriceModificationBackAnchor
+  PriceModificationBackAnchor,
+  PriceModelItemText
   // PriceText,
 } from '@src/styled';
 
 
 interface PriceProps {
   ModelCollection: ModelCollectionItemInterface[],
-  CurrentModelItem: ModelCollectionItemInterface['name'],
+  CurrentModelModificationsCollection: 
+  CurrentModelModificationsCollectionInterface,
+  selectCurrentModel: 
+  ( payload: ModelCollectionItemInterface['name'] ) => any,
 }
 
 export const Price: React.SFC<PriceProps> = (props) => {
   const { 
     ModelCollection,
-    CurrentModelItem
+    CurrentModelModificationsCollection,
+    selectCurrentModel,
   } = props;
   
   // Handlers
   const priceModelHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
-    // e.currentTarget.getAttribute('data-model-name');
+    const atribute: string | null = 
+      e.currentTarget.getAttribute('data-model-name');
+    if ( atribute !== null ) {
+      selectCurrentModel(atribute);      
+    }
   };
 
   const clearCurrentModelHandler = 
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
       e.nativeEvent.stopImmediatePropagation();
+      selectCurrentModel('default');
     }
 
-  if ( CurrentModelItem !== '' ) {
+  if ( CurrentModelModificationsCollection.header === '' ) {
     return (
       <div>
         {ModelCollection.map((e, i) => (
@@ -54,11 +65,24 @@ export const Price: React.SFC<PriceProps> = (props) => {
   } else {
     return (
       <div>
-        <div>
+        <PriceModelItem>
           <PriceModificationBackAnchor
             onClick={clearCurrentModelHandler} 
-          />          
-        </div>
+          />
+          <PriceModelItemText>
+            {CurrentModelModificationsCollection.header}
+          </PriceModelItemText>
+        </PriceModelItem>        
+        {CurrentModelModificationsCollection.modifications.map((e, i) => (
+          <PriceModelItem key={i}>
+          <PriceModelItemAnchor
+            onClick={priceModelHandler}
+            data-model-name={e.id}
+          >
+            {e.value}
+          </PriceModelItemAnchor>
+        </PriceModelItem>
+        ))}
       </div>
     );
   }

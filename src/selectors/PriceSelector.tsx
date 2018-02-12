@@ -7,7 +7,10 @@ export const ModelCollectionSelector = createSelector(
   ( ModelCollection ) => ModelCollection,
 );
 
-export const CurrentModelItemSelector = createSelector(
-  ( state: RootState ) => state.price.CurrentModelItem,
-  ( CurrentModelItem ) => CurrentModelItem,
+export const CurrentModelModificationsCollectionSelector = 
+createSelector(
+  ( state: RootState ) => 
+    state.price.CurrentModelModificationsCollection,
+  ( CurrentModelModificationsCollection ) => 
+    CurrentModelModificationsCollection,
 );

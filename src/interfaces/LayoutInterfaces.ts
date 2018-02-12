@@ -73,7 +73,56 @@ export type CarouselStyledType =
 export type ProfitIconStyleType =
   CurrentProfitIconInterface & React.HTMLProps<HTMLDivElement>;
 
-export interface ModelCollectionItemInterface {
-  name: string,
+
+export interface CollectionContain {
+  id: string,
   value: string,
+}
+
+export interface CMPhasesCollectionInterface {
+  header: string,
+  phases: CollectionContain[],
+}
+
+export interface PhasesCollectionInterface {
+  default: CMPhasesCollectionInterface,
+  duster: CMPhasesCollectionInterface,
+  logan: CMPhasesCollectionInterface,
+  logan2: CMPhasesCollectionInterface,
+  sandero: CMPhasesCollectionInterface,
+  sandero2: CMPhasesCollectionInterface,
+  sanderoStepway: CMPhasesCollectionInterface,
+  sanderoStepway2: CMPhasesCollectionInterface,
+  fluence: CMPhasesCollectionInterface,
+}
+
+export interface CMModificationsCollectionInterface {
+  header: string,
+  modifications: CollectionContain[],
+}
+
+
+//
+export interface CurrentModelModificationsCollectionInterface {
+  header: string,
+  phases: {
+    id: string,
+    value: string,
+  }[],
+  modifications: {
+    id: string,
+    value: string,
+  }[],
+};
+
+export interface ModificationsCollectionInterface {
+  default: CurrentModelModificationsCollectionInterface,
+  duster: CurrentModelModificationsCollectionInterface,
+  logan: CurrentModelModificationsCollectionInterface,
+  logan2: CurrentModelModificationsCollectionInterface,
+  sandero: CurrentModelModificationsCollectionInterface,
+  sandero2: CurrentModelModificationsCollectionInterface,
+  sanderoStepway: CurrentModelModificationsCollectionInterface,
+  sanderoStepway2: CurrentModelModificationsCollectionInterface,
+  fluence: CurrentModelModificationsCollectionInterface,
 }
