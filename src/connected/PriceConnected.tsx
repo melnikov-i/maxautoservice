@@ -6,13 +6,15 @@ import { Dispatch, RootState } from '@src/redux';
 import { Price } from '@src/components';
 
 import {
-  ModelCollectionItemInterface,
-  CurrentModelModificationsCollectionInterface
+  CollectionContain,
+  CurrentModelModificationsCollectionInterface,
+  PriceItemInterface
 } from '@src/interfaces';
 
 import {
   ModelCollectionSelector,
-  CurrentModelModificationsCollectionSelector
+  CurrentModelModificationsCollectionSelector,
+  CurrentModificationPriceCollectionSelector
 } from '@src/selectors';
 
 import {
@@ -20,17 +22,22 @@ import {
 } from '@src/redux/price';
 
 const mapStateToProps = createStructuredSelector<RootState, {
-    ModelCollection: ModelCollectionItemInterface[],
+    ModelCollection: CollectionContain[],
     CurrentModelModificationsCollection: 
-      CurrentModelModificationsCollectionInterface
+      CurrentModelModificationsCollectionInterface,
+    CurrentModificationPriceCollection: PriceItemInterface,
   }>({
     ModelCollection: ModelCollectionSelector,
     CurrentModelModificationsCollection: 
       CurrentModelModificationsCollectionSelector,
+    CurrentModificationPriceCollection:
+      CurrentModificationPriceCollectionSelector,
   });
 
 const mapDispatchToProps = ( dispatch: Dispatch ) => bindActionCreators({
-  selectCurrentModel: syncActionCreators.selectCurrentModel
+  selectCurrentModel: syncActionCreators.selectCurrentModel,
+  cleanCurrentModel: syncActionCreators.cleanCurrentModel,
+  selectCurrentPrice: syncActionCreators.selectCurrentPrice,
 }, dispatch);
 
 export const PriceConnected = connect(

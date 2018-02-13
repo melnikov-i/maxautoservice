@@ -14,3 +14,11 @@ createSelector(
   ( CurrentModelModificationsCollection ) => 
     CurrentModelModificationsCollection,
 );
+
+export const CurrentModificationPriceCollectionSelector = 
+createSelector(
+  ( state: RootState ) => 
+    state.price.CurrentModificationPriceCollection,
+  ( CurrentModificationPriceCollection ) => 
+    CurrentModificationPriceCollection,
+);

@@ -42,6 +42,15 @@ export const PriceModelItemAnchor = styled.a`
   text-align: left;
 `;
 
+export const PriceModelPhaseItemAnchor = PriceModelItemAnchor.extend`
+  font-size: 16px;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      font-size: 14px;
+    }
+`;
+
 export const PriceModelItemText = styled.p`
   padding: 10px 10px 10px 62px;
   font-size: 18px;
@@ -73,4 +82,36 @@ export const PriceModificationBackAnchor = styled.a`
     color: ${ BLACK_COLOR };
     margin-left: 14px;
   }
+`;
+
+export const PriceModelPhaseHeader = styled.h3`
+  font-size: 24px;
+  margin: ${GLOBAL_INDENT};
+`;
+
+export const PriceTablePlace = styled.div`
+  width: 100%;
+  height: 72px;
+
+background-color: rgba(255, 0, 0, .4);
+`;
+
+export const PriceTable = styled.table`
+  width: 100%;
+  margin: 30px auto;
+  border-spacing: 0;
+`;
+
+export const PriceTableRow = styled.tr`
+  width: 100%;
+`;
+
+export const PriceTableColl = styled.td`
+  width: 50%;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: normal;
+  min-height: 24px;
+  line-height: 24px;
+  text-align: left;
 `;

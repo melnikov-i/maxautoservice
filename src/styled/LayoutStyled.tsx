@@ -317,7 +317,7 @@ export const LayoutDescriptionListItemHeader = styled.h4`
 export const LayoutInviteToCall = styled.p`
   font-size: 24px;
   text-align: center;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 `;
 
 export const LayoutInviteToCallSpan = styled.span`

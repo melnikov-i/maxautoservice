@@ -1,40 +1,52 @@
 import * as React from 'react';
 
 import {
-  ModelCollectionItemInterface,
-  CurrentModelModificationsCollectionInterface
+  CollectionContain,
+  CurrentModelModificationsCollectionInterface,
+  PriceItemInterface
 } from '@src/interfaces';
 
 import {
   PriceModelItem,
   PriceModelItemAnchor,
+  PriceModelPhaseItemAnchor,
   PriceModificationBackAnchor,
-  PriceModelItemText
-  // PriceText,
+  PriceModelItemText,
+  PriceModelPhaseHeader,
+  PriceTable,
+  PriceTableRow,
+  PriceTableColl,
+  // PriceTablePlace
 } from '@src/styled';
 
 
 interface PriceProps {
-  ModelCollection: ModelCollectionItemInterface[],
+  ModelCollection: CollectionContain[],
   CurrentModelModificationsCollection: 
-  CurrentModelModificationsCollectionInterface,
+    CurrentModelModificationsCollectionInterface,
+  CurrentModificationPriceCollection: PriceItemInterface,
   selectCurrentModel: 
-  ( payload: ModelCollectionItemInterface['name'] ) => any,
+    ( payload: CollectionContain['id'] ) => any,
+  cleanCurrentModel: () => any,
+  selectCurrentPrice: ( payload: string ) => any,
 }
 
 export const Price: React.SFC<PriceProps> = (props) => {
   const { 
     ModelCollection,
     CurrentModelModificationsCollection,
+    CurrentModificationPriceCollection,
     selectCurrentModel,
+    cleanCurrentModel,
+    selectCurrentPrice,
   } = props;
   
   // Handlers
-  const priceModelHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const priceModelsHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
     const atribute: string | null = 
-      e.currentTarget.getAttribute('data-model-name');
+      e.currentTarget.getAttribute('data-model-id');
     if ( atribute !== null ) {
       selectCurrentModel(atribute);      
     }
@@ -44,8 +56,24 @@ export const Price: React.SFC<PriceProps> = (props) => {
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
       e.nativeEvent.stopImmediatePropagation();
-      selectCurrentModel('default');
-    }
+      cleanCurrentModel();
+    };
+
+  const priceCurrentModelHandler = 
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      e.nativeEvent.stopImmediatePropagation();
+      const atribute: string | null = 
+        e.currentTarget.getAttribute('data-model-id');
+      if ( atribute !== null ) {
+        selectCurrentPrice(atribute);
+      }
+    };
+
+console.log(
+  'CurrentModificationPriceCollection:',
+  CurrentModificationPriceCollection
+);
 
   if ( CurrentModelModificationsCollection.header === '' ) {
     return (
@@ -53,8 +81,8 @@ export const Price: React.SFC<PriceProps> = (props) => {
         {ModelCollection.map((e, i) => (
           <PriceModelItem key={i}>
             <PriceModelItemAnchor
-              onClick={priceModelHandler}
-              data-model-name={e.name}
+              onClick={priceModelsHandler}
+              data-model-id={e.id}
             >
               {e.value}
             </PriceModelItemAnchor>
@@ -63,27 +91,89 @@ export const Price: React.SFC<PriceProps> = (props) => {
       </div>
     );
   } else {
-    return (
-      <div>
-        <PriceModelItem>
-          <PriceModificationBackAnchor
-            onClick={clearCurrentModelHandler} 
-          />
-          <PriceModelItemText>
-            {CurrentModelModificationsCollection.header}
-          </PriceModelItemText>
-        </PriceModelItem>        
-        {CurrentModelModificationsCollection.modifications.map((e, i) => (
-          <PriceModelItem key={i}>
-          <PriceModelItemAnchor
-            onClick={priceModelHandler}
-            data-model-name={e.id}
-          >
-            {e.value}
-          </PriceModelItemAnchor>
-        </PriceModelItem>
-        ))}
-      </div>
-    );
+    if ( CurrentModificationPriceCollection.header === '' ) {
+      return (
+        <div>
+          <PriceModelItem>
+            <PriceModificationBackAnchor
+              onClick={clearCurrentModelHandler} 
+            />
+            <PriceModelItemText>
+              {CurrentModelModificationsCollection.header}
+            </PriceModelItemText>
+          </PriceModelItem>        
+          {CurrentModelModificationsCollection.phases.map((phase, i) => (
+            <div key={i}>
+              {(phase.phaseHeader !== '') 
+                ? <PriceModelPhaseHeader>
+                    {phase.phaseHeader}
+                  </PriceModelPhaseHeader>
+                : null
+              }
+              {phase.modifications.map((modification, i) => (
+                <PriceModelItem key={i}>
+                  <PriceModelPhaseItemAnchor
+                    onClick={priceCurrentModelHandler}
+                    data-model-id={modification.id}
+                  >
+                    {modification.value}
+                  </PriceModelPhaseItemAnchor>
+                </PriceModelItem>
+              ))}
+            </div>
+          ))}
+        </div>
+      );      
+    } else {
+      return (
+        <PriceTable>
+          <tbody>
+            <PriceTableRow>
+              <PriceTableColl>
+                {'Оригинальный'}
+              </PriceTableColl>
+              <PriceTableColl>
+                {CurrentModificationPriceCollection.price[0]}
+              </PriceTableColl>
+            </PriceTableRow>
+            <PriceTableRow>
+              <PriceTableColl>
+                {'Оптимальный'}
+              </PriceTableColl>
+              <PriceTableColl>
+                {CurrentModificationPriceCollection.price[1]}
+              </PriceTableColl>
+            </PriceTableRow>
+            <PriceTableRow>
+              <PriceTableColl>
+                {'Экономный'}
+              </PriceTableColl>
+              <PriceTableColl>
+                {CurrentModificationPriceCollection.price[2]}
+              </PriceTableColl>
+            </PriceTableRow>            
+          </tbody>
+        </PriceTable>
+      );
+    }
   }
 };
+        // {( CurrentModificationPriceCollection.length !== 0 )
+        //   ? <table>
+        //       <tr>
+        //         <td>{'Оригинальный'}</td>
+        //         <td>{CurrentModificationPriceCollection[0]}</td>
+        //       </tr>
+        //       <tr>
+        //         <td>{'Оптимальный'}</td>
+        //         <td>{CurrentModificationPriceCollection[1]}</td>
+        //       </tr>
+        //       <tr>
+        //         <td>{'Экономный'}</td>
+        //         <td>{CurrentModificationPriceCollection[2]}</td>
+        //       </tr>
+        //     </table>
+        //   : <PriceTablePlace>
+        //       <p>{'Чтобы увидеть цену, выберите модификацию'}</p>
+        //     </PriceTablePlace>
+        // }

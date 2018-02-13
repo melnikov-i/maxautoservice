@@ -79,40 +79,14 @@ export interface CollectionContain {
   value: string,
 }
 
-export interface CMPhasesCollectionInterface {
-  header: string,
-  phases: CollectionContain[],
-}
-
-export interface PhasesCollectionInterface {
-  default: CMPhasesCollectionInterface,
-  duster: CMPhasesCollectionInterface,
-  logan: CMPhasesCollectionInterface,
-  logan2: CMPhasesCollectionInterface,
-  sandero: CMPhasesCollectionInterface,
-  sandero2: CMPhasesCollectionInterface,
-  sanderoStepway: CMPhasesCollectionInterface,
-  sanderoStepway2: CMPhasesCollectionInterface,
-  fluence: CMPhasesCollectionInterface,
-}
-
-export interface CMModificationsCollectionInterface {
-  header: string,
+export interface ModificationsInterface {
+  phaseHeader: string,
   modifications: CollectionContain[],
 }
 
-
-//
 export interface CurrentModelModificationsCollectionInterface {
   header: string,
-  phases: {
-    id: string,
-    value: string,
-  }[],
-  modifications: {
-    id: string,
-    value: string,
-  }[],
+  phases: ModificationsInterface[],
 };
 
 export interface ModificationsCollectionInterface {
@@ -125,4 +99,9 @@ export interface ModificationsCollectionInterface {
   sanderoStepway: CurrentModelModificationsCollectionInterface,
   sanderoStepway2: CurrentModelModificationsCollectionInterface,
   fluence: CurrentModelModificationsCollectionInterface,
+}
+
+export interface PriceItemInterface {
+  header: string,
+  price: string[],
 }
