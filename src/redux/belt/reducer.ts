@@ -3,29 +3,29 @@ import { combineReducers } from 'redux';
 import {
   CollectionContain,
   CurrentModelModificationsCollectionInterface,
-  PriceItemInterface
+  PriceItemInterface,
 } from '@src/interfaces';
 
 import {
-  PriceModelCollection,
+  BeltModelCollection,
   ModificationsCollection,
-  Price,
+  Belt
 } from '@src/data';
 
 import {
-  SELECT_CURRENT_MODEL,
-  CLEAN_THIS_ITEM,
-  SELECT_CURRENT_PRICE,
-} from '@src/redux/price';
+  SELECT_CURRENT_BELT_MODEL,
+  CLEAN_THIS_BELT_ITEM,
+  SELECT_CURRENT_BELT,
+} from '@src/redux/belt';
 
 export type State = {
-  readonly ModelCollection: CollectionContain[],
-  readonly CurrentModelModificationsCollection: 
+  readonly BeltModelCollection: CollectionContain[],
+  readonly CurrentBeltModelModificationsCollection: 
     CurrentModelModificationsCollectionInterface,
-  readonly CurrentModificationPriceCollection: PriceItemInterface,
+  readonly CurrentModificationBeltCollection: PriceItemInterface,
 };
 
-const CurrentModificationPriceCollectionInitialState: 
+const CurrentModificationBeltCollectionInitialState: 
 PriceItemInterface =
   {
     header: '',
@@ -37,30 +37,30 @@ CurrentModelModificationsCollectionInterface =
   ModificationsCollection.default;
 
 export const reducer = combineReducers({
-  ModelCollection: ( state = PriceModelCollection, action ) => {
+  BeltModelCollection: ( state = BeltModelCollection, action ) => {
     switch ( action.type ) {
       default:
         return state;
     }
   },
-  CurrentModelModificationsCollection: 
+  CurrentBeltModelModificationsCollection: 
   ( state = CurrentModelModificationsInitialState, action ) => {
     switch ( action.type ) {
-      case SELECT_CURRENT_MODEL:
+      case SELECT_CURRENT_BELT_MODEL:
         return ModificationsCollection[action.payload];
-      case CLEAN_THIS_ITEM:
+      case CLEAN_THIS_BELT_ITEM:
         return CurrentModelModificationsInitialState;
       default:
         return state;
     }
   },
-  CurrentModificationPriceCollection: 
-  (state = CurrentModificationPriceCollectionInitialState, action) => {
+  CurrentModificationBeltCollection: 
+  (state = CurrentModificationBeltCollectionInitialState, action) => {
     switch ( action.type ) {
-      case CLEAN_THIS_ITEM:
-        return CurrentModificationPriceCollectionInitialState;
-      case SELECT_CURRENT_PRICE:
-        return Price[action.payload];
+      case CLEAN_THIS_BELT_ITEM:
+        return CurrentModificationBeltCollectionInitialState;
+      case SELECT_CURRENT_BELT:
+        return Belt[action.payload];
       default:
         return state;
     }

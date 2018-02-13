@@ -18,29 +18,28 @@ import {
   PriceTableRow,
   PriceTableColl,
   PriceTableHeader,
-  // PriceTablePlace
 } from '@src/styled';
 
 
-interface PriceProps {
-  ModelCollection: CollectionContain[],
-  CurrentModelModificationsCollection: 
+interface BeltProps {
+  BeltModelCollection: CollectionContain[],
+  CurrentBeltModelModificationsCollection: 
     CurrentModelModificationsCollectionInterface,
-  CurrentModificationPriceCollection: PriceItemInterface,
-  selectCurrentModel: 
+  CurrentModificationBeltCollection: PriceItemInterface,
+  selectCurrentBeltModel: 
     ( payload: CollectionContain['id'] ) => any,
-  cleanCurrentModel: () => any,
-  selectCurrentPrice: ( payload: string ) => any,
+  cleanCurrentBeltModel: () => any,
+  selectCurrentBelt: ( payload: string ) => any,
 }
 
-export const Price: React.SFC<PriceProps> = (props) => {
+export const Belt: React.SFC<BeltProps> = (props) => {
   const { 
-    ModelCollection,
-    CurrentModelModificationsCollection,
-    CurrentModificationPriceCollection,
-    selectCurrentModel,
-    cleanCurrentModel,
-    selectCurrentPrice,
+    BeltModelCollection,
+    CurrentBeltModelModificationsCollection,
+    CurrentModificationBeltCollection,
+    selectCurrentBeltModel,
+    cleanCurrentBeltModel,
+    selectCurrentBelt,
   } = props;
   
   // Handlers
@@ -50,7 +49,7 @@ export const Price: React.SFC<PriceProps> = (props) => {
     const atribute: string | null = 
       e.currentTarget.getAttribute('data-model-id');
     if ( atribute !== null ) {
-      selectCurrentModel(atribute);      
+      selectCurrentBeltModel(atribute);      
     }
   };
 
@@ -58,7 +57,7 @@ export const Price: React.SFC<PriceProps> = (props) => {
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
       e.nativeEvent.stopImmediatePropagation();
-      cleanCurrentModel();
+      cleanCurrentBeltModel();
     };
 
   const priceCurrentModelHandler = 
@@ -68,19 +67,14 @@ export const Price: React.SFC<PriceProps> = (props) => {
       const atribute: string | null = 
         e.currentTarget.getAttribute('data-model-id');
       if ( atribute !== null ) {
-        selectCurrentPrice(atribute);
+        selectCurrentBelt(atribute);
       }
     };
 
-console.log(
-  'CurrentModificationPriceCollection:',
-  CurrentModificationPriceCollection
-);
-
-  if ( CurrentModelModificationsCollection.header === '' ) {
+  if ( CurrentBeltModelModificationsCollection.header === '' ) {
     return (
       <PriceLayout>
-        {ModelCollection.map((e, i) => (
+        {BeltModelCollection.map((e, i) => (
           <PriceModelItem key={i}>
             <PriceModelItemAnchor
               onClick={priceModelsHandler}
@@ -93,7 +87,7 @@ console.log(
       </PriceLayout>
     );
   } else {
-    if ( CurrentModificationPriceCollection.header === '' ) {
+    if ( CurrentModificationBeltCollection.header === '' ) {
       // Список модификаций
       return (
         <PriceLayout>
@@ -102,10 +96,10 @@ console.log(
               onClick={clearCurrentModelHandler} 
             />
             <PriceModelItemText>
-              {CurrentModelModificationsCollection.header}
+              {CurrentBeltModelModificationsCollection.header}
             </PriceModelItemText>
           </PriceModelItem>        
-          {CurrentModelModificationsCollection.phases.map((phase, i) => (
+          {CurrentBeltModelModificationsCollection.phases.map((phase, i) => (
             <div key={i}>
               {(phase.phaseHeader !== '') 
                 ? <PriceModelPhaseHeader>
@@ -136,7 +130,7 @@ console.log(
               onClick={clearCurrentModelHandler} 
             />
             <PriceModelItemText>
-              {CurrentModificationPriceCollection.header}
+              {CurrentModificationBeltCollection.header}
             </PriceModelItemText>
           </PriceTableHeader> 
           <PriceTable>
@@ -146,7 +140,7 @@ console.log(
                   {'Оригинальный'}
                 </PriceTableColl>
                 <PriceTableColl>
-                  {CurrentModificationPriceCollection.price[0]}
+                  {CurrentModificationBeltCollection.price[0]}
                 </PriceTableColl>
               </PriceTableRow>
               <PriceTableRow>
@@ -154,40 +148,13 @@ console.log(
                   {'Оптимальный'}
                 </PriceTableColl>
                 <PriceTableColl>
-                  {CurrentModificationPriceCollection.price[1]}
+                  {CurrentModificationBeltCollection.price[1]}
                 </PriceTableColl>
               </PriceTableRow>
-              <PriceTableRow>
-                <PriceTableColl>
-                  {'Экономный'}
-                </PriceTableColl>
-                <PriceTableColl>
-                  {CurrentModificationPriceCollection.price[2]}
-                </PriceTableColl>
-              </PriceTableRow>            
             </tbody>
-          </PriceTable>          
+          </PriceTable>
         </PriceLayout>
       );
     }
   }
 };
-        // {( CurrentModificationPriceCollection.length !== 0 )
-        //   ? <table>
-        //       <tr>
-        //         <td>{'Оригинальный'}</td>
-        //         <td>{CurrentModificationPriceCollection[0]}</td>
-        //       </tr>
-        //       <tr>
-        //         <td>{'Оптимальный'}</td>
-        //         <td>{CurrentModificationPriceCollection[1]}</td>
-        //       </tr>
-        //       <tr>
-        //         <td>{'Экономный'}</td>
-        //         <td>{CurrentModificationPriceCollection[2]}</td>
-        //       </tr>
-        //     </table>
-        //   : <PriceTablePlace>
-        //       <p>{'Чтобы увидеть цену, выберите модификацию'}</p>
-        //     </PriceTablePlace>
-        // }

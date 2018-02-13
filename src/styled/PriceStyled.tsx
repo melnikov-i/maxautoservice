@@ -10,6 +10,10 @@ import {
   BLACK_COLOR,
 } from '@src/styled';
 
+export const PriceLayout = styled.div`
+  margin: 30px 0;
+`;
+
 export const PriceModelItem = styled.div`
   width: 30.1333%;
   margin: ${GLOBAL_INDENT};
@@ -56,6 +60,20 @@ export const PriceModelItemText = styled.p`
   font-size: 18px;
   line-height: 32px;
   height: 32px;
+  @media screen 
+    and (min-width: ${ SMALL_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      font-size: 14px;
+    }
+`;
+
+export const PriceTableHeader = PriceModelItem.extend`
+  width: 96.8%;
+  @media screen 
+    and (min-width: ${ MIDDLE_SCREEN_MIN }) 
+    and (max-width: ${ MIDDLE_SCREEN_MAX }) {
+      width: 96.8%;
+    }
 `;
 
 export const PriceText = styled.p`
@@ -97,9 +115,11 @@ background-color: rgba(255, 0, 0, .4);
 `;
 
 export const PriceTable = styled.table`
-  width: 100%;
+  width: 90%;
   margin: 30px auto;
   border-spacing: 0;
+  border-left: 1px solid ${ BLACK_COLOR };
+  border-top: 1px solid ${ BLACK_COLOR };
 `;
 
 export const PriceTableRow = styled.tr`
@@ -111,7 +131,10 @@ export const PriceTableColl = styled.td`
   box-sizing: border-box;
   font-size: 16px;
   font-weight: normal;
-  min-height: 24px;
-  line-height: 24px;
+  min-height: 32px;
+  line-height: 32px;
   text-align: left;
+  padding-left: 15px;
+  border-right: 1px solid ${ BLACK_COLOR };
+  border-bottom: 1px solid ${ BLACK_COLOR };
 `;

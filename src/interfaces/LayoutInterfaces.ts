@@ -23,6 +23,8 @@ export interface PageDataInterface {
       image: any,
     }[],
   },
+  priceHeader: string,
+  beltHeader: string,
   address: {
     header: string,
     address: string,

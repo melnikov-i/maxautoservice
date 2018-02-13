@@ -8,6 +8,7 @@ import {
 import ProfitConnected from '@src/connected/ProfitConnected.usage';
 import HeadConnected from '@src/connected/HeadConnected.usage';
 import PriceConnected from '@src/connected/PriceConnected.usage';
+import BeltConnected from '@src/connected/BeltConnected.usage';
 
 import {
   LayoutWrapper,
@@ -188,7 +189,14 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
         })
       }
           </LayoutDesctiptionList>
+          <LayoutScreenHeader>
+            {PageData.priceHeader}
+          </LayoutScreenHeader>
           <PriceConnected />
+          <LayoutScreenHeader>
+            {PageData.beltHeader}
+          </LayoutScreenHeader>
+          <BeltConnected />
           <LayoutInviteToCall>
             { PageData.description.inviteToCall }
           </LayoutInviteToCall>
