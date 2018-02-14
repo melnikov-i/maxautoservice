@@ -101,6 +101,7 @@ const PageDataInitialState = {
   },
   priceHeader: 'Узайте стоимость ТО в два клика!',
   beltHeader: 'Стоимость замены ремней ГРМ',
+  otherHeader: 'А также',
   address: {
     header: 'Адрес и схема проезда',
     address: 'Санкт-Петербург, Ириновский пр., д. 2Л',

@@ -5,6 +5,10 @@ import {
   PageDataInterface,
 } from '@src/interfaces';
 
+import {
+  CommonPrice
+} from '@src/data';
+
 import ProfitConnected from '@src/connected/ProfitConnected.usage';
 import HeadConnected from '@src/connected/HeadConnected.usage';
 import PriceConnected from '@src/connected/PriceConnected.usage';
@@ -42,7 +46,10 @@ import {
   LayoutItemWrapper,
   LayoutScreenHeader,
   LayoutFooter,
-  YELLOW_COLOR
+  YELLOW_COLOR,
+  PriceTable,
+  PriceTableRow,
+  PriceTableColl,
 } from '@src/styled';
 
 const FontAwesomeEOT = require('@src/fonts/fontawesome-webfont.eot');
@@ -197,6 +204,23 @@ export const Layout: React.SFC<LayoutProps> = (props) => {
             {PageData.beltHeader}
           </LayoutScreenHeader>
           <BeltConnected />
+          <LayoutScreenHeader>
+            {PageData.otherHeader}
+          </LayoutScreenHeader>
+          <PriceTable>
+            <tbody>
+              {CommonPrice.map((e, i) => (
+                <PriceTableRow key={i}>
+                  <PriceTableColl>
+                    {e.desctription}
+                  </PriceTableColl>
+                  <PriceTableColl>
+                    {e.value}
+                  </PriceTableColl>
+                </PriceTableRow>
+              ))}
+            </tbody>
+          </PriceTable>
           <LayoutInviteToCall>
             { PageData.description.inviteToCall }
           </LayoutInviteToCall>

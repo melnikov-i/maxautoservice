@@ -25,6 +25,7 @@ export interface PageDataInterface {
   },
   priceHeader: string,
   beltHeader: string,
+  otherHeader: string,
   address: {
     header: string,
     address: string,
@@ -101,6 +102,14 @@ export interface ModificationsCollectionInterface {
   sanderoStepway: CurrentModelModificationsCollectionInterface,
   sanderoStepway2: CurrentModelModificationsCollectionInterface,
   fluence: CurrentModelModificationsCollectionInterface,
+}
+
+export interface BeltModificationsCollectionInterface {
+  default: CurrentModelModificationsCollectionInterface,
+  logan: CurrentModelModificationsCollectionInterface,
+  logan2: CurrentModelModificationsCollectionInterface,
+  sandero: CurrentModelModificationsCollectionInterface,
+  sandero2: CurrentModelModificationsCollectionInterface,
 }
 
 export interface PriceItemInterface {
