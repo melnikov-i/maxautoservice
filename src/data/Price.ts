@@ -63,11 +63,11 @@ export const ModificationsCollection: ModificationsCollectionInterface = {
             value: 'K4M (1.6, 102 л/с, AC)',
           },
           {
-            id: 'dPph1F4R',
+            id: 'dPh1F4R',
             value: 'F4R (2.0, 135 л/с)',
           },
           {
-            id: 'dPph1F4RwC',
+            id: 'dPh1F4RwC',
             value: 'F4R (2.0, 135 л/с, AC)',
           },
         ],
