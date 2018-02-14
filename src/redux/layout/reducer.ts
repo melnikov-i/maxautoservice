@@ -99,7 +99,7 @@ const PageDataInitialState = {
       }
     ],
   },
-  priceHeader: 'Узайте стоимость ТО в два клика!',
+  priceHeader: 'Узнайте стоимость ТО в два клика!',
   beltHeader: 'Стоимость замены ремней ГРМ',
   otherHeader: 'Услуги и цены',
   address: {
