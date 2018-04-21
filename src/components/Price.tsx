@@ -72,11 +72,6 @@ export const Price: React.SFC<PriceProps> = (props) => {
       }
     };
 
-console.log(
-  'CurrentModificationPriceCollection:',
-  CurrentModificationPriceCollection
-);
-
   if ( CurrentModelModificationsCollection.header === '' ) {
     return (
       <PriceLayout>

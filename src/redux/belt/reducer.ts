@@ -8,7 +8,7 @@ import {
 
 import {
   BeltModelCollection,
-  ModificationsCollection,
+  BeltModificationsCollection,
   Belt
 } from '@src/data';
 
@@ -34,7 +34,7 @@ PriceItemInterface =
 
 const CurrentModelModificationsInitialState: 
 CurrentModelModificationsCollectionInterface =
-  ModificationsCollection.default;
+  BeltModificationsCollection.default;
 
 export const reducer = combineReducers({
   BeltModelCollection: ( state = BeltModelCollection, action ) => {
@@ -47,7 +47,7 @@ export const reducer = combineReducers({
   ( state = CurrentModelModificationsInitialState, action ) => {
     switch ( action.type ) {
       case SELECT_CURRENT_BELT_MODEL:
-        return ModificationsCollection[action.payload];
+        return BeltModificationsCollection[action.payload];
       case CLEAN_THIS_BELT_ITEM:
         return CurrentModelModificationsInitialState;
       default:
