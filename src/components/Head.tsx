@@ -34,7 +34,7 @@ export const Head: React.SFC<HeadProps> = (props) => {
       CarouselItemData.slides.slice(1);
     const slides: CarouselItemDataInterface['slides'] = [
       ...slidesFirstItems,
-      CarouselItemData.slides['1']
+      CarouselItemData.slides[1]
     ];
     const payload: CarouselItemDataInterface = {
       ...CarouselItemData,
@@ -176,33 +176,30 @@ export const Head: React.SFC<HeadProps> = (props) => {
 
   return (
       <HeadCarousel
-      id={'carousel'}
-      carouselWidth={carouselItemDataLength}
-      delay={CarouselItemData.animationDelay}
-      marginLeft={CarouselItemData.marginLeft}>
-        <HeadCarouselItemForwardAnchor
-        onClick={ToTheRightMovingHandler} />
-        <HeadCarouselItemBackwardAnchor
-        onClick={ToTheLeftMovingHandler} />
-  {
-    CarouselItemData.slides.map((e, i) => {
-      return (
-        <HeadCarouselItem 
+        id={'carousel'}
         carouselWidth={carouselItemDataLength}
-        image={e.images}
-        key={i}>
-          <HeadCarouselItemTextBackground>
-            <HeadCarouselItemHeader>
-              { e.header }
-            </HeadCarouselItemHeader>
-            <HeadCarouselItemText>
-              { e.text }
-            </HeadCarouselItemText>
-          </HeadCarouselItemTextBackground>
-        </HeadCarouselItem>
-      );
-    })
-  }
+        delay={CarouselItemData.animationDelay}
+        marginLeft={CarouselItemData.marginLeft}
+      >
+        <HeadCarouselItemForwardAnchor
+          onClick={ToTheRightMovingHandler} />
+        <HeadCarouselItemBackwardAnchor
+          onClick={ToTheLeftMovingHandler}
+        />
+        {CarouselItemData.slides.map((e, i) => {
+          return (
+            <HeadCarouselItem 
+              carouselWidth={carouselItemDataLength}
+              image={e.images}
+              key={i}
+            >
+              <HeadCarouselItemTextBackground>
+                <HeadCarouselItemHeader>{ e.header }</HeadCarouselItemHeader>
+                <HeadCarouselItemText>{ e.text }</HeadCarouselItemText>
+              </HeadCarouselItemTextBackground>
+            </HeadCarouselItem>
+          );
+        })}
       </HeadCarousel>
   );
 }
