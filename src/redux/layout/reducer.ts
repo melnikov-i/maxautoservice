@@ -104,7 +104,7 @@ const PageDataInitialState = {
   otherHeader: 'Услуги и цены',
   address: {
     header: 'Адрес и схема проезда',
-    address: 'Санкт-Петербург, Ириновский пр., д. 2Л',
+    address: 'Санкт-Петербург, ул. Передовиков 8А',
     addressIcon: 'f041',
     schedule: 'Пн - Вс: с 9:00 до 21:00',
     scheduleIcon: 'f073',

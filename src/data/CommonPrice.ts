@@ -1,7 +1,7 @@
 export const CommonPrice = [
   {
     desctription: 'Компьютерная диагностика (считывание кодов)',
-    value: '950 р.',
+    value: '900 р.',
   },
   {
     desctription: 'Полный осмотр (освещение, тормозная система, '
@@ -15,7 +15,7 @@ export const CommonPrice = [
   },
   {
     desctription: 'Диагностика двигателя',
-    value: '950 р.',
+    value: '900 р.',
   },
   {
     desctription: 'Диагностика подвески / Диагностика ходовой части',
