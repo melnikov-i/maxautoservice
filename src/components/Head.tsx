@@ -76,8 +76,7 @@ export const Head: React.SFC<HeadProps> = (props) => {
     }, CarouselItemData.delay);
   };
 
-  const ToTheLeftMovingHandler = 
-  (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const ToTheLeftMovingHandler = () => {
     let max_id = setTimeout(function () {});
     while (max_id--) {
       clearTimeout(max_id);
@@ -97,8 +96,7 @@ export const Head: React.SFC<HeadProps> = (props) => {
     }, 100);
   };
 
-  const ToTheRightMovingHandler = 
-  (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const ToTheRightMovingHandler = () => {
     let max_id = setTimeout(function () {});
     while (max_id--) {
       clearTimeout(max_id);
